@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const ShowingTimes = require("./showingtimes");
+const ShowingTimes = import("./showingtimes");
 const Schema = mongoose.Schema;
 
 
@@ -43,15 +43,15 @@ const MoviesSchema = new Schema({
     poster: {
         type: String,
         required:true
-    }
-
+    }   
 
 
 })
 
+module.exports = mongoose.model("Movies", MoviesSchema);
 
-const Movies = mongoose.model("Movies", MoviesSchema);
-module.exports = Movies;
+export default MoviesSchema;
+
 
 
 
