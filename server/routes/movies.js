@@ -27,20 +27,25 @@ router.post("/create", (req, res) => {
     const movies = new Movies(req.body);
 
     movies.save().then((result) => {
-        res.status(201).send(`${result.title} added to the database.`);
+        res.status(201).send(`${result.title} added to the database.`).catch(err => {console.log(err);})
     });
     // console.log(req.body);
-   
 });
 
-//get request - get movie by ID
-// router.get('/:id', getMovie);
+router.put("/update/:id", (req, res) => {
 
-//post request - create new movie
-// Router.post('/', createMovies);
-//put request - update existing movie
-// Router.put('/:id', updateMovies);
-//delete request - delete movie
-// Router.delete('/:id', deleteMovies);
+    Movies.findByIdAndUpdate({_id: req.params.id}, req.body, (err, result) => {
+        if (err) res.send(err);
+        res.status(202).send(`Updated ${req.body.title}`);
+    })
+});
+
+router.delete("/delete/:id", (req, res) => {
+
+    Movies.findByIdAndDelete({_id: req.params.id}, req.body, (err, result) => {
+        if (err) res.send(err);
+        res.status(202).send(`Deleted ${req.body.title}`);
+    })
+})
 
 module.exports = router; 
