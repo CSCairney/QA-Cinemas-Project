@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const ShowingTimes = import("./showingtimes");
-const Schema = mongoose.Schema;
+// const ShowingTimes = import("./showingtimes");
 
+const { Schema, model } = mongoose;
 
 const MoviesSchema = new Schema({
 
@@ -25,9 +25,9 @@ const MoviesSchema = new Schema({
         required: true
     },
 
-    showing_times: {
-        times: [ShowingTimes]
-    },
+    // showing_times: {
+    //     times: [ShowingTimes]
+    // },
 
     duration: {
         type: String,
@@ -48,10 +48,13 @@ const MoviesSchema = new Schema({
 
 })
 
-module.exports = mongoose.model("Movies", MoviesSchema);
 
-export default MoviesSchema;
+const Movies = model("Movies", MoviesSchema);
 
+module.exports = {"Movies" : Movies};
 
+// const SuperHero = model("SuperHero" , superHeroesSchema);
+
+// module.exports = {"SuperHero" : SuperHero}
 
 
