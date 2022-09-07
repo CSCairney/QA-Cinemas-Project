@@ -8,7 +8,11 @@ const DiscussionSchema = new Schema({
         required: true
     },
 
-    timestamps: true,
+    timestamps: {
+        type: Date,
+        default: Date.now,
+        required: true
+    },
 
     subjectMovie: {
         type: String,
