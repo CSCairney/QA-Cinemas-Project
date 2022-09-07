@@ -27,8 +27,8 @@ router.post("/create", (req, res) => {
     const movies = new Movies(req.body);
 
     movies.save().then((result) => {
-        res.status(201).send(`${result.title} added to the database.`).catch(err => {console.log(err);})
-    });
+        res.status(201).send(`${result.title} added to the database.`)
+    }).catch(err => {console.log(err);})
     // console.log(req.body);
 });
 

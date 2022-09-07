@@ -29,7 +29,11 @@ const PaymentSchema = new Schema({
         required: true
     },
 
-    timestamp: true 
+    timestamp: {
+        type: Date,
+        default: Date.now
+    }
+    
 
 
 })
