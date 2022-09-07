@@ -5,6 +5,7 @@ const cors = require("cors");
 const moviesRouter = require ('./routes/movies.js');
 const paymentsRouter = require ('./routes/payments.js');
 const bookingsRouter = require ('./routes/bookings.js');
+const discussionRouter = require ('./routes/discussion.js');
 
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(cors());
 app.use('/movies', moviesRouter);
 app.use('/payments', paymentsRouter);
 app.use('/bookings', bookingsRouter);
+app.use('/discussion', discussionRouter);
 
 
 // Connection to the database
