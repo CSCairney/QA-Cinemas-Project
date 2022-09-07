@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import './emailform.css'
+import Button from 'react-bootstrap/Button';
 
 const EmailForm = () => {
   const form = useRef();
@@ -16,15 +18,27 @@ const EmailForm = () => {
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail}>
-      <label>Name</label>
-      <input type="text" name="user_name" />
-      <label>Email</label>
-      <input type="email" name="user_email" />
-      <label>Message</label>
-      <textarea name="message" />
-      <input type="submit" value="Send" />
-    </form>
+    <div  id="emailforms">
+      <form ref={form} onSubmit={sendEmail}>
+      <div class="mb-3">
+      <label  class="form-label"/>
+      <input type="text" name="user_name" class="form-control" placeholder="Name" />
+      </div>
+      <div class="mb-3">
+      <label class="form-label"/>
+      <input type="email" class="form-control"  name="user_email" placeholder="name@email.com"/>
+      </div>
+      <div class="mb-3">
+        <label for="Textarea1" class="form-label"/>
+        <textarea class="form-control" id="Textarea1" rows="3" placeholder="Message Here" name="message"></textarea>
+      </div>
+
+      <Button variant="warning" type="submit" value="Send" size="lg">Submit</Button>
+      </form>
+    </div>
   );
 };
 export default EmailForm;
+
+
+
