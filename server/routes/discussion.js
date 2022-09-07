@@ -17,8 +17,8 @@ router.post("/create", (req, res) => {
     const discussion = new Discussion(req.body);
 
     discussion.save().then((result) => {
-        res.status(201).send(`${result.username}'s review has been added to the discussion board.`).catch(err => {console.log(err);})
-    });
+        res.status(201).send(`${result.username}'s review has been added to the discussion board.`)
+    }).catch(err => {console.log(err);})
     // console.log(req.body);
 });
 
