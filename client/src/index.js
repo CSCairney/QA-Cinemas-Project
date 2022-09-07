@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './component/App';
-import EmailForm from './component/emailform';
+import EmailForm from './component/emailForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
