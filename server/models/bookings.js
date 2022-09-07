@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
-
 const ConcessionSchema = new Schema({
     popcorn: {
         type: String,
@@ -35,30 +34,23 @@ const ConcessionSchema = new Schema({
 const BookingsSchema = new Schema({
     movieTitle: {
         type: String,
-        required: true
-    },
-    
-    date: {
-        type: Date,
-        required: true
+        required: [true,"Title is required"]
     },
 
-    time: {
-        type: String,
-        required: true
+    date: {
+        type: Date,
+        required: [true,"Date is required"]
+    },
+
+    time:{
+        type:String,
+        required:[true,"ShowTime is Required"]
     },
 
     name: {
-        type: String,
-        required: true
+        type:String,
+        required: [true,"Name is required"]
     },
-
-    email: {
-        type: String,
-        required: true
-    },
-
-    phone: String,
 
     seats: {
         type: Number,
