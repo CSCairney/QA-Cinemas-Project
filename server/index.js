@@ -3,11 +3,13 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const moviesRouter = require ('./routes/movies.js');
+const bookingsRouter = require ('./routes/bookings.js');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use('/movies', moviesRouter);
+app.use('/bookings', bookingsRouter);
 
 // Connection to the database
 mongoose.connect('mongodb://127.0.0.1:27017/qacinema', {
