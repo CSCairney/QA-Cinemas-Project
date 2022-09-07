@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
+//MongoDB schema for discussion messages
 const DiscussionSchema = new Schema({
 
     username: {
@@ -38,7 +39,7 @@ const DiscussionSchema = new Schema({
 
 
 })
-
+//export of discussion model for external use
 const Discussion = model("Discussion", DiscussionSchema);
 
 module.exports = {"Discussion" : Discussion};
