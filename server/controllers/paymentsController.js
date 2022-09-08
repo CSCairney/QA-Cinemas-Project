@@ -10,6 +10,13 @@ module.exports = {
         })
     },
 
+    getById: async (req, res) => {
+
+        const payment = await Payments.findById(req.params.id);
+
+        res.status(200).send(payment);
+    },
+
     createPayments: (req, res) => {
 
         const payments = new Payments(req.body);

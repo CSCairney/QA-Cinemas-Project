@@ -4,6 +4,9 @@ const paymentsController = require("../controllers/paymentsController.js");
 // Get request for payments,
 router.get("/getAll", paymentsController.getAllPayments);
 
+// Get request for payments by ID,
+router.get("/getById/:id", paymentsController.getById );
+
 // Post request for payments,
 router.post("/create", paymentsController.createPayments);
 

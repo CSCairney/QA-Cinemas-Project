@@ -4,6 +4,9 @@ const bookingsController = require("../controllers/bookingsController.js");
 // Get request for bookings,
 router.get("/getAll", bookingsController.getAllBookings);
 
+// Get request for bookings by ID,
+router.get("/getById/:id", bookingsController.getById );
+
 // Post request for bookings,
 router.post("/create", bookingsController.createBookings );
 
