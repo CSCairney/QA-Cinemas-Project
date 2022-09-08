@@ -3,9 +3,8 @@ const { Schema, model } = mongoose;
 
 const PaymentSchema = new Schema({
 
-
     firstName: {
-        type: String,                                                                                           
+        type: String,
         required: true
     },
 
@@ -33,12 +32,8 @@ const PaymentSchema = new Schema({
         type: Date,
         default: Date.now
     }
-    
-
-
-})
+});
 
 
 const Payments = model("Payments", PaymentSchema);
-
-module.exports = {"Payments" : Payments};
+module.exports = { "Payments": Payments };

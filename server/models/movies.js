@@ -1,6 +1,4 @@
 const mongoose = require("mongoose");
-// const ShowingTimes = import("./showingtimes");
-
 const { Schema, model } = mongoose;
 
 const MoviesSchema = new Schema({
@@ -36,25 +34,15 @@ const MoviesSchema = new Schema({
 
     rating: {
         type: String,
-        enum: ["Uc","U", "PG", "12", "12A", "15", "18", "R18"],
+        enum: ["Uc", "U", "PG", "12", "12A", "15", "18", "R18"],
         required: true
     },
 
     poster: {
         type: String,
-        required:true
-    }   
-
-
-})
-
+        required: true
+    }
+});
 
 const Movies = model("Movies", MoviesSchema);
-
-module.exports = {"Movies" : Movies};
-
-// const SuperHero = model("SuperHero" , superHeroesSchema);
-
-// module.exports = {"SuperHero" : SuperHero}
-
-
+module.exports = { "Movies": Movies };
