@@ -1,0 +1,41 @@
+body {
+    text-align: center;
+    font-size: 30px;
+    background-color: aliceblue !important;
+}
+
+.top {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.mid {
+    display: flex;
+    justify-content: center;
+}
+
+.seats {
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+}
+
+#adult, #child {
+    width: 60px;
+}
+
+select {
+    height:30px;
+    font-size:14pt;
+}
+
+input {
+    height: 25px;
+    font-size: 14pt;
+}
+
+#allocation {
+    height: 50px;
+    font-size: 15pt;
+}
