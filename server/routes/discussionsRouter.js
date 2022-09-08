@@ -4,6 +4,9 @@ const discussionsController = require ("../controllers/discussionsController.js"
 // Get request for discussions,
 router.get("/getAll", discussionsController.getAllDiscussions );
 
+// Get request for discussions by ID,
+router.get("/getById/:id", discussionsController.getById );
+
 // Post request for discussions,
 router.post("/create", discussionsController.createDiscussions);
 

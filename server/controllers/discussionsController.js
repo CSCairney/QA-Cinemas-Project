@@ -4,18 +4,25 @@ module.exports = {
 
     getAllDiscussions: (req, res) => {
 
-        Discussion.find({}, (err, result) => {
+        Discussions.find({}, (err, result) => {
             if (err) res.send(err);
             res.status(200).send(result);
         })
     },
 
+    getById: async (req, res) => {
+
+        const discussion = await Discussions.findById(req.params.id);
+
+        res.status(200).send(discussion);
+    },
+
     createDiscussions: (req, res) => {
         //Through a body request
 
-        const discussion = new Discussion(req.body);
+        const discussions = new Discussion(req.body);
 
-        discussion.save().then((result) => {
+        discussions.save().then((result) => {
             res.status(201).send(`${result.username}'s review has been added to the discussion board.`)
         }).catch(err => { console.log(err); })
         // console.log(req.body);
@@ -23,7 +30,7 @@ module.exports = {
 
     updateDiscussions: (req, res) => {
 
-        Discussion.findByIdAndUpdate({ _id: req.params.id }, req.body, (err, result) => {
+        Discussions.findByIdAndUpdate({ _id: req.params.id }, req.body, (err, result) => {
             if (err) res.send(err);
             res.status(202).send(`Updated review message id=${req.body.id}`);
         })
@@ -31,7 +38,7 @@ module.exports = {
 
     deleteDiscussions: (req, res) => {
 
-        Discussion.findByIdAndDelete({ _id: req.params.id }, req.body, (err, result) => {
+        Discussions.findByIdAndDelete({ _id: req.params.id }, req.body, (err, result) => {
             if (err) res.send(err);
             res.status(202).send(`Deleted review message id=${req.body.id}`);
         })

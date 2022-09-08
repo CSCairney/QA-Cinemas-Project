@@ -10,6 +10,15 @@ module.exports = {
         })
     },
 
+    getById: async (req, res) => {
+
+        const booking = await Bookings.findById(req.params.id);
+
+        res.status(200).send(booking);
+
+    },
+
+
     createBookings: (req, res) => {
         const booking = new Bookings(req.body);
 

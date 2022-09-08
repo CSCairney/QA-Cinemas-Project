@@ -10,6 +10,13 @@ module.exports = {
         })
     },
 
+    getById: async (req, res) => {
+
+        const movie = await Movies.findById(req.params.id);
+
+        res.status(200).send(movie);
+    },
+
     createMovies: (req, res) => {
         //Through a body request
 
