@@ -4,6 +4,7 @@ import './index.css';
 import App from './component/App';
 import EmailForm from './component/emailForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PaymentForm from './component/payment/payment';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
