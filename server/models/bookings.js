@@ -54,8 +54,15 @@ const BookingsSchema = new Schema({
         required: [true, "Name is required"]
     },
 
+    email: {
+        type: String,
+        required: [true, "Email is required"]
+    },
+
+    phone: String,
+
     seats: {
-        type: Number,
+        type: [String],
         required: true,
         min: [1, "Must choose at least 1 seat"]
     },

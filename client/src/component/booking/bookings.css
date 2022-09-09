@@ -1,7 +1,13 @@
-body {
+.booking-main {
     text-align: center;
     font-size: 30px;
-    background-color: aliceblue !important;
+    border-style:solid;
+    color:#333652;
+    background-color: #90ADC6;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding:20px;
+    
 }
 
 .top {
