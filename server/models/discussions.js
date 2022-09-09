@@ -27,6 +27,7 @@ const DiscussionsSchema = new Schema({
 
     spoilerMarker: {
         type: Boolean,
+        default: false,
         required: false
     },
 

@@ -4,93 +4,86 @@ import {useState, useEffect } from "react";
 
 
 
-function discussionMessages() {
+const Discussion = () => {
     const [discussions, setDiscussions] = useState([]);
-    const [discussionUsername, setDiscussionUsername] = useState([]);
-    const [discussionSubjectMovie, setDiscussionSubjectMovie] = useState([]);
-    const [discussionRating, setDiscussionRating] = useState([]);
-    const [discussionSpoilerMarker, setDiscussionSpoilerMarker] = useState([]);
-    const [discussionMessage, setDiscussionMessage] = useState([]);
-
-    const api = axios.create({
-        baseURL: 'localhost:3002/discussion/'
-    })
+    const [discussionUsername, setDiscussionUsername] = useState("");
+    const [discussionSubjectMovie, setDiscussionSubjectMovie] = useState("");
+    const [discussionRating, setDiscussionRating] = useState("");
+    const [discussionSpoilerMarker, setDiscussionSpoilerMarker] = useState(false);
+    const [discussionMessage, setDiscussionMessage] = useState("");
+    
+    const addDiscussionMessage = (e) =>{
+            e.preventDefault()
+            const discussion = {
+                username: discussionUsername,
+                subjectMovie: discussionSubjectMovie,
+                rating: discussionRating,
+                spoilerMarker: discussionSpoilerMarker,
+                message: discussionMessage
+            }
+            console.log(discussion)
+            axios.post('http://localhost:3002/discussions/create', discussion
+            ).then(()=>{
+                console.log("New discussion message added")
+                
+            })
+            
+    }
 
     useEffect(() => {
-        const fetchDiscussionMessages = async () => {
-            try {
-                const response = await api.get('/getAll');
-                setDiscussions(response.data);
-            } catch (err) {
-                if (err.response) {
-                    console.log(err.response.data);
-                    console.log(err.response.status);
-                    console.log(err.response.headers);
-                } else {
-                    console.log(`Error: ${err.message}`);
-                }
 
-            }
-        }
+        axios.get('http://localhost:3002/discussions/getAll')
+            .then((result) => {
+                setDiscussions(result.data.data);
+            })
 
-        fetchDiscussionMessages();
+
     }, [])
-  
-    const handleDelete = async (id) => {
-        try {
-            await api.delete(`/${id}`);
-            const discussionsList = discussions.filter(discussion => discussion.id !== id);
-            setDiscussions(discussionsList);
-            history.pushState('/getAll');
-        } catch (err) {
-            console.log(`Error: ${err.message}`);
-        }
-    }
-      
+          
         return (
             
-                <div>
-                    <form onSubmit={DiscussionHandler}>
-                        <div class="mb-3">
-                            <label for="usernameInput1" class="form-label">Username:</label>
-                            <input type="text" class="form-control" id="usernameInput" aria-describedby="usernameInput" placeholder="Please input cinema username." onChange={discussionUsername}></input>
-                            
-                        </div>
-                        <div class="mb-3">
-                            <label for="subjectMovieInput1" class="form-label">Subject Movie:</label>
-                            <input type="text" class="form-control" id="subjectMovieInput" aria-describedby="subjectMovieInput" placeholder="Please input movie title." onChange={discussionSubjectMovie}></input>
-                        </div>
-                                         <div class="mb-3">
-                            <label for="ratingInput1" class="form-label">Rating:</label>
-                            <div id="ratingHelp" class="form-text">1-5.</div>
-                            <select id="ratingSelectValue" onChange={discussionRating}>
-                                <option selected disabled>select</option>
-                                <option value="1">1 - Poor</option>
-                                <option value="2">2 - Okay</option>
-                                <option value="3">3 - Good</option>
-                                <option value="4">4 - Great</option>
-                                <option value="5">5 - Perfect</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="messageInput1" class="form-label">Message</label>
-                            <input type="text" class="form-control" id="subjectMovieInput" aria-describedby="subjectMovieInput" placeholder="Discussion message here."></input>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+            <div>
+                <form onSubmit={addDiscussionMessage}>
+                    <div className="mb-3">
+                        <label htmlFor="usernameInput1" className="form-label">Username:</label>
+                        <input type="text" className="form-control" id="usernameInput" aria-describedby="usernameInput" placeholder="Please input cinema username." value={discussionUsername} onChange={(e) => setDiscussionUsername(e.target.value)}></input>
 
-                    <div className="discussionResult">
-                        <button onClick={this.createDiscussion}>New Discussion</button>
-                        <button onClick={this.deleteDiscussion}>Delete Discussion</button>
-                        <ul>
-                            {
-                                this.state.discussions.map(discussion => <li key={discussion.id}>'Username: {discussion.username}<br /> Rating: {discussion.rating}<br />  {discussion.message}'</li>)
-                            }
-                        </ul>
                     </div>
+                    <div className="mb-3">
+                        <label htmlFor="subjectMovieInput1" className="form-label">Subject Movie:</label>
+                        <input type="text" className="form-control" id="subjectMovieInput" aria-describedby="subjectMovieInput" placeholder="Please input movie title." value={discussionSubjectMovie} onChange={(e) => setDiscussionSubjectMovie(e.target.value)}></input>
+                    </div>                    
+                    <div className="mb-3">
+                        <label htmlFor="messageInput1" className="form-label">Message</label>
+                        <input type="text" className="form-control" id="subjectMovieInput" aria-describedby="subjectMovieInput" placeholder="Discussion message here." value={discussionMessage} onChange={(e) => setDiscussionMessage(e.target.value)}></input>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="ratingInput1" className="form-label">Rating:</label>
+                        <select multiple={false} id="ratingSelectValue" onChange={(e) => setDiscussionRating(e.target.value)}>
+                            <option value="" disabled>select</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </form>
+
+                <div className="discussionResult">
+                    <button className="btn btn-primary">Delete Discussion</button>
+                    <ul>
+                        {
+                            discussions?.map((discussion) => (<li key={discussion._id}>{discussion.message}</li>))
+                        }
+                    </ul>
                 </div>
+            </div>
             
-        )
+        );
     }
+
+    export default Discussion;
 
 
