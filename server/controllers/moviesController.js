@@ -16,20 +16,22 @@ module.exports = {
     //Get one movie from the database with maching ID.
     getById: async (req, res) => {
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No movie with id: ${req.params.id}`);
-            const movie = await Movies.findById(req.params.id); 
-            res.status(200).json(movie);          
+            if (!mongoose.Types.ObjectId.isValid(req.params.id))
+                return res.status(404).json({ message: `No movie with id: ${req.params.id}` });
+            const movie = await Movies.findById(req.params.id);
+            res.status(200).json(movie);
         } catch (error) {
             res.status(404).json({ message: error.message });
         }
     },
 
     //Get one movie from the database with maching movie title.
-    getByTitle: async(req, res, next) => {
-        try {  
+    getByTitle: async (req, res, next) => {
+        try {
             const movie = await Movies.findOne({ title: req.params.title });
-            (movie)? res.status(200).json(movie) : res.status(404).send(`No movie with title: ${req.params.title}`);
-        } catch(error) {
+            (movie) ? res.status(200).json(movie) :
+                res.status(404).json({ message: `No movie with title: ${req.params.title}` });
+        } catch (error) {
             res.status(404).json({ message: error.message });
         }
     },
@@ -39,7 +41,7 @@ module.exports = {
         const createMovie = new Movies(req.body);
         try {
             await createMovie.save();
-            res.status(201).json(createMovie)
+            res.status(201).json(createMovie);
         } catch (error) {
             res.status(404).json({ message: error.message });
         }
@@ -48,7 +50,8 @@ module.exports = {
     //Update movie in the database with maching ID.
     updateMovies: async (req, res) => {
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No movie with id: ${req.params.id}`);
+            if (!mongoose.Types.ObjectId.isValid(req.params.id))
+                return res.status(404).json({ message: `No movie with id: ${req.params.id}` });
             const updateMovie = await Movies.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true });
             res.status(201).json(updateMovie);
         } catch (error) {
@@ -59,7 +62,8 @@ module.exports = {
     //Delete movie from the database with maching ID.
     deleteMovies: async (req, res) => {
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No movie with id: ${req.params.id}`);
+            if (!mongoose.Types.ObjectId.isValid(req.params.id))
+                return res.status(404).json({ message: `No movie with id: ${req.params.id}` });
             await Movies.findByIdAndDelete({ _id: req.params.id });
             res.status(201).json({ message: "Movie deleted successfully!" });
         } catch (error) {

@@ -4,7 +4,7 @@ const { Bookings } = require("../models/bookings.js");
 module.exports = {
 
     //Get all bookings from the database. 
-    getAllBookings:  async (req, res) => {
+    getAllBookings: async (req, res) => {
         try {
             const getBookings = await Bookings.find();
             res.status(200).json(getBookings);
@@ -14,9 +14,10 @@ module.exports = {
     },
 
     //Get one booking from the database with maching ID.
-    getById:  async (req, res) => {
+    getById: async (req, res) => {
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No booking with id: ${req.params.id}`);
+            if (!mongoose.Types.ObjectId.isValid(req.params.id))
+                return res.status(404).json({ message: `No booking with id: ${req.params.id}` });
             const booking = await Bookings.findById(req.params.id);
             res.status(200).json(booking);
         } catch (error) {
@@ -29,16 +30,17 @@ module.exports = {
         const createBooking = new Bookings(req.body);
         try {
             await createBooking.save();
-            res.status(201).json(createBooking)
+            res.status(201).json(createBooking);
         } catch (error) {
             res.status(404).json({ message: error.message });
         }
-    },   
+    },
 
     //Update booking in the database with maching ID.
     updateBookings: async (req, res) => {
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No booking with id: ${req.params.id}`);
+            if (!mongoose.Types.ObjectId.isValid(req.params.id))
+                return res.status(404).json({ message: `No booking with id: ${req.params.id}` });
             const updateBooking = await Bookings.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true });
             res.status(201).json(updateBooking);
         } catch (error) {
@@ -49,7 +51,8 @@ module.exports = {
     //Delete booking from the database with maching ID.
     deleteBookings: async (req, res) => {
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No booking with id: ${req.params.id}`);
+            if (!mongoose.Types.ObjectId.isValid(req.params.id))
+                return res.status(404).json({ message: `No booking with id: ${req.params.id}` });
             await Bookings.findByIdAndDelete({ _id: req.params.id });
             res.status(201).json({ message: "Booking deleted successfully!" });
         } catch (error) {

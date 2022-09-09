@@ -16,7 +16,8 @@ module.exports = {
     //Get one payment from the database with maching ID.
     getById: async (req, res) => {
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No payment with id: ${req.params.id}`);
+            if (!mongoose.Types.ObjectId.isValid(req.params.id))
+                return res.status(404).json({ message: `No payment with id: ${req.params.id}` });
             const payment = await Payments.findById(req.params.id);
             res.status(200).json(payment);
         } catch (error) {
@@ -29,7 +30,7 @@ module.exports = {
         const createPayment = new Payments(req.body);
         try {
             await createPayment.save();
-            res.status(201).json(createPayment)
+            res.status(201).json(createPayment);
         } catch (error) {
             res.status(404).json({ message: error.message });
         }
@@ -38,7 +39,8 @@ module.exports = {
     //Update payment in the database with maching ID.
     updatePayments: async (req, res) => {
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No payment with id: ${req.params.id}`);
+            if (!mongoose.Types.ObjectId.isValid(req.params.id))
+                return res.status(404).json({ message: `No payment with id: ${req.params.id}` });
             const updatePayment = await Payments.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true });
             res.status(201).json(updatePayment);
         } catch (error) {
@@ -49,7 +51,8 @@ module.exports = {
     //Delete payment from the database with maching ID.
     deletePayments: async (req, res) => {
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No payment with id: ${req.params.id}`);
+            if (!mongoose.Types.ObjectId.isValid(req.params.id))
+                return res.status(404).json({ message: `No payment with id: ${req.params.id}` });
             await Payments.findByIdAndDelete({ _id: req.params.id });
             res.status(201).json({ message: "Payment deleted successfully!" });
         } catch (error) {
