@@ -36,28 +36,28 @@ const BookingsSchema = new Schema({
 
     movieTitle: {
         type: String,
-        required: [true, "Title is required"]
+        required: true
     },
 
     date: {
         type: Date,
-        required: [true, "Date is required"]
+        required: true
     },
 
     time: {
         type: String,
-        required: [true, "ShowTime is Required"]
+        required: true
     },
 
     name: {
         type: String,
-        required: [true, "Name is required"]
+        required: true
     },
 
     seats: {
         type: Number,
         required: true,
-        min: [1, "Must choose at least 1 seat"]
+        min: 1
     },
     adult: Number,
     child: Number,

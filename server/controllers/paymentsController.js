@@ -1,49 +1,59 @@
+const mongoose = require("mongoose");
 const { Payments } = require("../models/payments.js");
 
 module.exports = {
 
-    getAllPayments: (req, res) => {
-
-        Payments.find({}, (err, result) => {
-            if (err) res.send(err);
-            res.status(200).send(result);
-        })
+    //Get all payments from the database.
+    getAllPayments: async (req, res) => {
+        try {
+            const getPayments = await Payments.find();
+            res.status(200).json(getPayments);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
     },
 
+    //Get one payment from the database with maching ID.
     getById: async (req, res) => {
-
-        const payment = await Payments.findById(req.params.id);
-
-        res.status(200).send(payment);
+        try {
+            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No payment with id: ${req.params.id}`);
+            const payment = await Payments.findById(req.params.id);
+            res.status(200).json(payment);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
     },
 
-    createPayments: (req, res) => {
-
-        const payments = new Payments(req.body);
-
-        payments.save().then((result) => {
-
-            res.status(201).send(`Payment Received. Thank You, ${result.firstName}.`);
-            console.log(`Payment details stored for ${result.firstName}.`);
-
-            // }).catch((err) => {console.log(err);
-        });
+    //Create new payment in the database. 
+    createPayments: async (req, res) => {
+        const createPayment = new Payments(req.body);
+        try {
+            await createPayment.save();
+            res.status(201).json(createPayment)
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
     },
 
-    updatePayments: (req, res) => {
-
-        Payments.findByIdAndUpdate({ _id: req.params.id }, req.body, (err, result) => {
-            if (err) res.send(err);
-            res.status(202).send(`Updated payment details for ${req.body.firstName}`);
-        });
+    //Update payment in the database with maching ID.
+    updatePayments: async (req, res) => {
+        try {
+            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No payment with id: ${req.params.id}`);
+            const updatePayment = await Payments.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true });
+            res.status(201).json(updatePayment);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
     },
 
-    deletePayments: (req, res) => {
-
-        Payments.findByIdAndDelete({ _id: req.params.id }, req.body, (err, result) => {
-            if (err) res.send(err);
-            res.status(202).send(`Deleted payment.`);
-        })
+    //Delete payment from the database with maching ID.
+    deletePayments: async (req, res) => {
+        try {
+            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No payment with id: ${req.params.id}`);
+            await Payments.findByIdAndDelete({ _id: req.params.id });
+            res.status(201).json({ message: "Payment deleted successfully!" });
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
     }
-
 }
