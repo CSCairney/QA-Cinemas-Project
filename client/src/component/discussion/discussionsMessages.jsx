@@ -12,14 +12,20 @@ function discussionMessages() {
     const [discussionSpoilerMarker, setDiscussionSpoilerMarker] = useState([]);
     const [discussionMessage, setDiscussionMessage] = useState([]);
 
-    const api = axios.create({
-        baseURL: 'localhost:3002/discussion/'
-    })
+    const addDiscussionMessage = (e) =>{
+            e.preventDefault()
+            const discussion = {discussionUsername, discussionSubjectMovie, discussionRating, discussionSpoilerMarker, discussionMessage}
+            console.log(discussion)
+            fetch(axios.post('localhost:3002/discussion/create',{
+                body:JSON.stringify(discussion)
+            }))
+            fetchDiscussionMessages();
+    }
 
     useEffect(() => {
         const fetchDiscussionMessages = async () => {
             try {
-                const response = await api.get('/getAll');
+                const response = await axios.get('localhost:3002/discussion/getAll');
                 setDiscussions(response.data);
             } catch (err) {
                 if (err.response) {
@@ -36,34 +42,34 @@ function discussionMessages() {
         fetchDiscussionMessages();
     }, [])
   
-    const handleDelete = async (id) => {
-        try {
-            await api.delete(`/${id}`);
-            const discussionsList = discussions.filter(discussion => discussion.id !== id);
-            setDiscussions(discussionsList);
-            history.pushState('/getAll');
-        } catch (err) {
-            console.log(`Error: ${err.message}`);
-        }
-    }
+    // const handleDelete = async (id) => {
+    //     try {
+    //         await api.delete(`/${id}`);
+    //         const discussionsList = discussions.filter(discussion => discussion.id !== id);
+    //         setDiscussions(discussionsList);
+    //         history.pushState('/getAll');
+    //     } catch (err) {
+    //         console.log(`Error: ${err.message}`);
+    //     }
+    // }
       
         return (
             
-                <div>
+                <div onload={fetchDiscussionMessages}>
                     <form onSubmit={DiscussionHandler}>
                         <div class="mb-3">
                             <label for="usernameInput1" class="form-label">Username:</label>
-                            <input type="text" class="form-control" id="usernameInput" aria-describedby="usernameInput" placeholder="Please input cinema username." onChange={discussionUsername}></input>
+                            <input type="text" class="form-control" id="usernameInput" aria-describedby="usernameInput" placeholder="Please input cinema username." value={discussionUsername} onChange={(e)=>setDiscussionUsername(e.target.value)}></input>
                             
                         </div>
                         <div class="mb-3">
                             <label for="subjectMovieInput1" class="form-label">Subject Movie:</label>
-                            <input type="text" class="form-control" id="subjectMovieInput" aria-describedby="subjectMovieInput" placeholder="Please input movie title." onChange={discussionSubjectMovie}></input>
+                            <input type="text" class="form-control" id="subjectMovieInput" aria-describedby="subjectMovieInput" placeholder="Please input movie title." value={discussionSubjectMovie} onChange={(e)=>setDiscussionSubjectMovie(e.target.value)}></input>
                         </div>
                                          <div class="mb-3">
                             <label for="ratingInput1" class="form-label">Rating:</label>
                             <div id="ratingHelp" class="form-text">1-5.</div>
-                            <select id="ratingSelectValue" onChange={discussionRating}>
+                            <select id="ratingSelectValue" value={discussionRating} onChange={(e)=>setDiscussionRating(e.target.value)}>
                                 <option selected disabled>select</option>
                                 <option value="1">1 - Poor</option>
                                 <option value="2">2 - Okay</option>
@@ -74,13 +80,12 @@ function discussionMessages() {
                         </div>
                         <div class="mb-3">
                             <label for="messageInput1" class="form-label">Message</label>
-                            <input type="text" class="form-control" id="subjectMovieInput" aria-describedby="subjectMovieInput" placeholder="Discussion message here."></input>
+                            <input type="text" class="form-control" id="subjectMovieInput" aria-describedby="subjectMovieInput" placeholder="Discussion message here." value={discussionMessage} onChange={(e)=>setDiscussionMessage(e.target.value)}></input>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" onClick={addDiscussionMessage}>Submit</button>
                     </form>
 
                     <div className="discussionResult">
-                        <button onClick={this.createDiscussion}>New Discussion</button>
                         <button onClick={this.deleteDiscussion}>Delete Discussion</button>
                         <ul>
                             {
