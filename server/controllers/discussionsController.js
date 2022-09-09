@@ -16,7 +16,8 @@ module.exports = {
     //Get one discussion from the database with maching ID.
     getById: async (req, res) => {
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No discussion with id: ${req.params.id}`);
+            if (!mongoose.Types.ObjectId.isValid(req.params.id)) 
+                return res.status(404).json({ message: `No discussion with id: ${req.params.id}`});
             const discussion = await Discussions.findById(req.params.id);
             res.status(200).json(discussion);
         } catch (error) {
@@ -29,7 +30,7 @@ module.exports = {
         const createDiscussion = new Discussions(req.body);
         try {
             await createDiscussion.save();
-            res.status(201).json(createDiscussion)
+            res.status(201).json(createDiscussion);
         } catch (error) {
             res.status(404).json({ message: error.message });
         }
@@ -38,7 +39,8 @@ module.exports = {
     //Update discussion in the database with maching ID.
     updateDiscussions: async (req, res) => {
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No discussion with id: ${req.params.id}`);
+            if (!mongoose.Types.ObjectId.isValid(req.params.id)) 
+                return res.status(404).json({ message: `No discussion with id: ${req.params.id}`});
             const updateDiscussion = await Discussions.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true });
             res.status(201).json(updateDiscussion);
         } catch (error) {
@@ -49,7 +51,8 @@ module.exports = {
     //Delete discussion from the database with maching ID.
     deleteDiscussions:  async (req, res) => {
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No discussion with id: ${req.params.id}`);
+            if (!mongoose.Types.ObjectId.isValid(req.params.id)) 
+                return res.status(404).json({ message: `No discussion with id: ${req.params.id}`});
             await Discussions.findByIdAndDelete({ _id: req.params.id });
             res.status(201).json({ message: "Discussion deleted successfully!" });
         } catch (error) {
