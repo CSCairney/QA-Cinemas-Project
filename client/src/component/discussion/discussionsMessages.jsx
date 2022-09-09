@@ -59,8 +59,8 @@ const Discussion = () => {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="ratingInput1" className="form-label">Rating:</label>
-                        <select multiple={false} id="ratingSelectValue" value={discussionRating} onChange={(e) => setDiscussionRating(e.target.value)}>
-                            <option selected disabled>select</option>
+                        <select multiple={false} id="ratingSelectValue" onChange={(e) => setDiscussionRating(e.target.value)}>
+                            <option value="" disabled>select</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -75,7 +75,7 @@ const Discussion = () => {
                     <button className="btn btn-primary">Delete Discussion</button>
                     <ul>
                         {
-                            discussions.map((discussion) => (<li key={discussion._id}>{discussion.message}</li>))
+                            discussions?.map((discussion) => (<li key={discussion._id}>{discussion.message}</li>))
                         }
                     </ul>
                 </div>
