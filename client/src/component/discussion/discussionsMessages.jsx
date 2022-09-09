@@ -1,6 +1,8 @@
 import React from "react";
 import axios from 'axios';
+import './discussionsMessages.css';
 import {useState, useEffect } from "react";
+
 
 
 
@@ -25,16 +27,27 @@ const Discussion = () => {
             axios.post('http://localhost:3002/discussions/create', discussion
             ).then(()=>{
                 console.log("New discussion message added")
-                
+                window.location.reload(true);
+                clearInputs();
+            }).catch((error) => {
+                console.log(error.message)
             })
             
+    }
+
+    const clearInputs = () => {
+        setDiscussionMessage("")
+        setDiscussionSubjectMovie("")
+        setDiscussionUsername("")
+        setDiscussionRating("")
+        setDiscussionSpoilerMarker(false)
     }
 
     useEffect(() => {
 
         axios.get('http://localhost:3002/discussions/getAll')
             .then((result) => {
-                setDiscussions(result.data.data);
+                setDiscussions(result.data);
             })
 
 
@@ -43,7 +56,7 @@ const Discussion = () => {
         return (
             
             <div>
-                <form onSubmit={addDiscussionMessage}>
+                <form onSubmit={addDiscussionMessage} id="discussionForm">
                     <div className="mb-3">
                         <label htmlFor="usernameInput1" className="form-label">Username:</label>
                         <input type="text" className="form-control" id="usernameInput" aria-describedby="usernameInput" placeholder="Please input cinema username." value={discussionUsername} onChange={(e) => setDiscussionUsername(e.target.value)}></input>
@@ -72,13 +85,18 @@ const Discussion = () => {
                 </form>
 
                 <div className="discussionResult">
-                    <button className="btn btn-primary">Delete Discussion</button>
-                    <ul>
-                        {
-                            discussions?.map((discussion) => (<li key={discussion._id}>{discussion.message}</li>))
-                        }
-                    </ul>
+                    <h1>Discussion Board</h1>
+                    {discussions?.map((discussion) => (
+                        <div key={discussion._id} className="discussion">
+                            <h2 id="username">{discussion.username}</h2>
+                            <hr/>
+                            <h5>{discussion.message}</h5>
+                            
+                        </div>
+                    ))}
                 </div>
+
+                
             </div>
             
         );

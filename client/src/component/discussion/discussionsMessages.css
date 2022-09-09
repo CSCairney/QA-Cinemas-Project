@@ -1,0 +1,32 @@
+#discussionForm{
+    text-align: left;
+  border-style:solid;
+  color:#333652;
+  background-color: #90ADC6;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding:20px;
+}
+
+.discussionResult{
+    text-align: left;
+  border-style:solid;
+  color:#333652;
+  background-color: #90ADC6;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding:20px;
+}
+
+.discussion{
+    border-style:ridge;
+    background-color:#ffffff;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.username{
+    font-size: medium;
+    background-color:#ffffff;
+}

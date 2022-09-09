@@ -1,10 +1,13 @@
 #emailforms{
+
   text-align: left;
   border-style:solid;
   color:#333652;
   background-color: #90ADC6;
   border-radius: 5px;
   margin-top: 20px;
+  margin-left:10px;
+  margin-right:10px;
   padding:20px;
- 
+  
 }
