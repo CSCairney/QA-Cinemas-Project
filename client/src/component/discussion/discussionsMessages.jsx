@@ -11,7 +11,7 @@ const Discussion = () => {
     const [discussionRating, setDiscussionRating] = useState("");
     const [discussionSpoilerMarker, setDiscussionSpoilerMarker] = useState(false);
     const [discussionMessage, setDiscussionMessage] = useState("");
-
+    
     const addDiscussionMessage = (e) =>{
             e.preventDefault()
             const discussion = {
@@ -22,9 +22,8 @@ const Discussion = () => {
                 message: discussionMessage
             }
             console.log(discussion)
-            axios.post('localhost:3002/discussions/create',{
-                body:JSON.stringify(discussion)
-            }).then(()=>{
+            axios.post('http://localhost:3002/discussions/create', discussion
+            ).then(()=>{
                 console.log("New discussion message added")
                 
             })
@@ -33,10 +32,9 @@ const Discussion = () => {
 
     useEffect(() => {
 
-        axios.get('localhost:3002/discussions/getAll')
-            .then(res => res.json())
+        axios.get('http://localhost:3002/discussions/getAll')
             .then((result) => {
-                setDiscussions(result);
+                setDiscussions(result.data.data);
             })
 
 
@@ -77,13 +75,13 @@ const Discussion = () => {
                     <button className="btn btn-primary">Delete Discussion</button>
                     <ul>
                         {
-                            discussions.map(discussion => <li key={discussion.id}>'Username: {discussion.username}<br /> Rating: {discussion.rating}<br />  {discussion.message}'</li>)
+                            discussions.map((discussion) => (<li key={discussion._id}>{discussion.message}</li>))
                         }
                     </ul>
                 </div>
             </div>
             
-        )
+        );
     }
 
     export default Discussion;
