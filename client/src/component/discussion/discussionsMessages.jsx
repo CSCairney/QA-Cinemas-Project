@@ -3,9 +3,6 @@ import axios from 'axios';
 import './discussionsMessages.css';
 import {useState, useEffect } from "react";
 
-
-
-
 const Discussion = () => {
     const [discussions, setDiscussions] = useState([]);
     const [discussionUsername, setDiscussionUsername] = useState("");
@@ -13,8 +10,8 @@ const Discussion = () => {
     const [discussionRating, setDiscussionRating] = useState("");
     const [discussionSpoilerMarker, setDiscussionSpoilerMarker] = useState(false);
     const [discussionMessage, setDiscussionMessage] = useState("");
-    
-    const addDiscussionMessage = (e) =>{
+   
+        const addDiscussionMessage = (e) =>{
             e.preventDefault()
             const discussion = {
                 username: discussionUsername,
@@ -55,20 +52,21 @@ const Discussion = () => {
           
         return (
             
-            <div>
+            <div className="discussionBG">
                 <form onSubmit={addDiscussionMessage} id="discussionForm">
+                    <h1>New Discussion</h1>
                     <div className="mb-3">
                         <label htmlFor="usernameInput1" className="form-label">Username:</label>
-                        <input type="text" className="form-control" id="usernameInput" aria-describedby="usernameInput" placeholder="Please input cinema username." value={discussionUsername} onChange={(e) => setDiscussionUsername(e.target.value)}></input>
+                        <input type="text" className="form-control" id="usernameInput" Style="width:40%" aria-describedby="usernameInput" placeholder="Please input cinema username." value={discussionUsername} onChange={(e) => setDiscussionUsername(e.target.value)}></input>
 
                     </div>
                     <div className="mb-3">
                         <label htmlFor="subjectMovieInput1" className="form-label">Subject Movie:</label>
-                        <input type="text" className="form-control" id="subjectMovieInput" aria-describedby="subjectMovieInput" placeholder="Please input movie title." value={discussionSubjectMovie} onChange={(e) => setDiscussionSubjectMovie(e.target.value)}></input>
+                        <input type="text" className="form-control" id="subjectMovieInput" Style="width:40%" aria-describedby="subjectMovieInput" placeholder="Please input movie title." value={discussionSubjectMovie} onChange={(e) => setDiscussionSubjectMovie(e.target.value)}></input>
                     </div>                    
                     <div className="mb-3">
                         <label htmlFor="messageInput1" className="form-label">Message</label>
-                        <input type="text" className="form-control" id="subjectMovieInput" aria-describedby="subjectMovieInput" placeholder="Discussion message here." value={discussionMessage} onChange={(e) => setDiscussionMessage(e.target.value)}></input>
+                        <input type="text" className="form-control" id="subjectMovieInput" aria-describedby="subjectMovieInput" placeholder="Please input your review here." value={discussionMessage} onChange={(e) => setDiscussionMessage(e.target.value)}></input>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="ratingInput1" className="form-label">Rating:</label>
@@ -88,9 +86,12 @@ const Discussion = () => {
                     <h1>Discussion Board</h1>
                     {discussions?.map((discussion) => (
                         <div key={discussion._id} className="discussion">
-                            <h2 id="username">{discussion.username}</h2>
+                            <div id="username">Username: {discussion.username}</div>
+                            <div id="subjectMovie">Movie: {discussion.subjectMovie}</div>
                             <hr/>
-                            <h5>{discussion.message}</h5>
+                            <div id="message">{discussion.message}</div>
+                            <hr/>
+                            <div id="rating">Reviewer's rating: {discussion.rating}</div>
                             
                         </div>
                     ))}
