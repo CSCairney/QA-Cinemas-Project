@@ -1,47 +1,60 @@
+const mongoose = require("mongoose");
 const { Discussions } = require("../models/discussions.js");
 
 module.exports = {
 
-    getAllDiscussions: (req, res) => {
-
-        Discussions.find({}, (err, result) => {
-            if (err) res.send(err);
-            res.status(200).send(result);
-        })
+    //Get all discussions from the database.
+    getAllDiscussions: async (req, res) => {
+        try {
+            const getDiscussions = await Discussions.find();
+            res.status(200).json(getDiscussions);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
     },
 
+    //Get one discussion from the database with maching ID.
     getById: async (req, res) => {
-
-        const discussion = await Discussions.findById(req.params.id);
-
-        res.status(200).send(discussion);
+        try {
+            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No discussion with id: ${req.params.id}`);
+            const discussion = await Discussions.findById(req.params.id);
+            res.status(200).json(discussion);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
     },
 
-    createDiscussions: (req, res) => {
-        //Through a body request
-
-        const discussions = new Discussion(req.body);
-
-        discussions.save().then((result) => {
-            res.status(201).send(`${result.username}'s review has been added to the discussion board.`)
-        }).catch(err => { console.log(err); })
-        // console.log(req.body);
+    //Create new discussion in the database. 
+    createDiscussions: async (req, res) => {
+        const createDiscussion = new Discussions(req.body);
+        try {
+            await createDiscussion.save();
+            res.status(201).json(createDiscussion)
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
     },
 
-    updateDiscussions: (req, res) => {
-
-        Discussions.findByIdAndUpdate({ _id: req.params.id }, req.body, (err, result) => {
-            if (err) res.send(err);
-            res.status(202).send(`Updated review message id=${req.body.id}`);
-        })
+    //Update discussion in the database with maching ID.
+    updateDiscussions: async (req, res) => {
+        try {
+            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No discussion with id: ${req.params.id}`);
+            const updateDiscussion = await Discussions.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true });
+            res.status(201).json(updateDiscussion);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
     },
 
-    deleteDiscussions: (req, res) => {
-
-        Discussions.findByIdAndDelete({ _id: req.params.id }, req.body, (err, result) => {
-            if (err) res.send(err);
-            res.status(202).send(`Deleted review message id=${req.body.id}`);
-        })
+    //Delete discussion from the database with maching ID.
+    deleteDiscussions:  async (req, res) => {
+        try {
+            if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send(`No discussion with id: ${req.params.id}`);
+            await Discussions.findByIdAndDelete({ _id: req.params.id });
+            res.status(201).json({ message: "Discussion deleted successfully!" });
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
     }
 
 }

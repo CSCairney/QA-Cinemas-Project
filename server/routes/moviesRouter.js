@@ -7,6 +7,9 @@ router.get("/getAll", moviesController.getAllMovies);
 // Get request for movie by ID,
 router.get("/getById/:id", moviesController.getById );
 
+// Get request for movie by movie title,
+router.get("/getByTitle/:title", moviesController.getByTitle );
+
 // Post request for movies,
 router.post("/create", moviesController.createMovies);
 
