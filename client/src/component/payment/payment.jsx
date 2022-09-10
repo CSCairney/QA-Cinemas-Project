@@ -54,9 +54,9 @@ const PaymentForm = () => {
       </div>
       <div className="mb-3">
       <label  className="form-label"/> Card Details
-      <input type="number" name="card_number" className="form-control" placeholder="Card Number" pattern="[0-9]{16}" minLength={16} maxLength={16} value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} />
+      <input type="text" name="card_number" className="form-control" placeholder="Card Number" pattern="[0-9]{16}" minLength={16} maxLength={16} value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} />
       <label  className="form-label"/>
-      <input type="number" name="security_code" className="form-control" placeholder="Security Code" maxLength={3} value={securityCode} onChange={(e) => setSecurityCode(e.target.value)} />
+      <input type="text" name="security_code" className="form-control" placeholder="Security Code" pattern="[0-9]{3}" minLength={3} maxLength={3} value={securityCode} onChange={(e) => setSecurityCode(e.target.value)} />
       <label className="form-label"/>
       <div id = "expirey_date_div">
       <label  className="form-label"/> 
