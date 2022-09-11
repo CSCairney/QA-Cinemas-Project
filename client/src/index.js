@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 // import EmailForm from './component/contact/emailForm';
 import PaymentForm from './component/payment/payment';
 import Discussion from './component/discussion/discussionsMessages';
+import BookingForm from './component/booking/bookings';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
@@ -17,6 +18,7 @@ root.render(
     {/* <EmailForm/>*/}
     <PaymentForm/> 
     <Discussion/>
+    <BookingForm/>
     </>
   </React.StrictMode>
 );
