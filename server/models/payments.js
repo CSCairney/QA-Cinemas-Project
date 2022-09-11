@@ -23,7 +23,7 @@ const PaymentSchema = new Schema({
         required: true
     },
 
-    SecurityCode: {
+    securityCode: {
         type: Number,
         required: true
     },
