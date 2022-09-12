@@ -66,6 +66,9 @@ const PaymentForm = () => {
 
 
       <Button variant="warning" type="submit" value="Send" size="lg">Pay</Button>
+      {/* <button className="close-modal" onClick={toggleModal}>
+              Go Back
+            </button> */}
       </form>
     </div>
   );
