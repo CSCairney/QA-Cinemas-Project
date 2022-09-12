@@ -17,7 +17,7 @@ export default function Modal() {
 
   return (
     <>
-      <button onClick={toggleModal} className="btn-modal">
+      <button variant="success" type="button" onClick={toggleModal} className="btn btn-success">
         Proceed to payment
       </button>
 

@@ -4,7 +4,7 @@ import './payment.css';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
-const PaymentForm = () => {
+const PaymentForm = ({handleClick}) => {
   const[firstName, setFirstName] = useState("");
   const[lastName, setLastName] = useState("");
   const[email, setEmail] = useState("");
@@ -42,8 +42,10 @@ const PaymentForm = () => {
   };
 
   return (
-    <div  id="paymentforms">
-      <form ref={paymentForm} onSubmit={sendEmail}>
+    <div id="payment-modal">
+    <div id="payment-overlay"></div>
+    <div  id="paymentform-div">
+      <form id="paymentform" ref={paymentForm} onSubmit={sendEmail}>
       <div className="mb-3">
       <label  className="form-label"/> Customer Details
       <input type="text" name="first_name" className="form-control" placeholder="FirstName" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
@@ -59,17 +61,18 @@ const PaymentForm = () => {
       <input type="text" name="security_code" className="form-control" placeholder="Security Code" pattern="[0-9]{3}" minLength={3} maxLength={3} value={securityCode} onChange={(e) => setSecurityCode(e.target.value)} />
       <label className="form-label"/>
       <div id = "expirey_date_div">
-      <label  className="form-label"/> 
+      <label  className="form-label"/> Expiry Date
       <input type="date" name="expiry_month" className="form-control" placeholder="mm/dd/yyyy" value={expiryDate} onChange={(e) => setExpiryDate(e.target.value)}/>
       </div>
       </div>
 
 
-      <Button variant="warning" type="submit" value="Send" size="lg">Pay</Button>
-      {/* <button className="close-modal" onClick={toggleModal}>
-              Go Back
-            </button> */}
+      <Button variant="primary" type="submit" value="Send" size="lg">Pay</Button>
+      <Button className="close-btn" variant="warning"  value="Send" size="lg" onClick={handleClick}>Close</Button>
+    
       </form>
+      
+    </div>
     </div>
   );
 };
