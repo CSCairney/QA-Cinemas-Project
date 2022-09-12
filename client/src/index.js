@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 // import App from './App';
 // import EmailForm from './component/contact/emailForm';
 import PaymentForm from './component/payment/payment';
@@ -19,6 +20,7 @@ root.render(
     <PaymentForm/> 
     <Discussion/>
     <BookingForm/>
+
     </>
   </React.StrictMode>
 );

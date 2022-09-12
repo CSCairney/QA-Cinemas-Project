@@ -1,0 +1,6 @@
+#App{
+    background-image: src("./resources/imgs/background-wave.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+}
