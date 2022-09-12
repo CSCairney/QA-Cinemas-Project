@@ -10,7 +10,8 @@ const PaymentForm = ({handleClick}) => {
   const[email, setEmail] = useState("");
   const[cardNumber, setCardNumber] = useState("");
   const[securityCode, setSecurityCode] = useState("");
-  const[expiryDate, setExpiryDate] = useState("");
+  const[expiryMonth, setExpiryMonth] = useState("");
+  const[expiryYear, setExpiryYear] = useState("");
   
   
   const paymentForm = useRef();
@@ -22,14 +23,17 @@ const PaymentForm = ({handleClick}) => {
         firstName: firstName,
         lastName: lastName,
         cardNumber: cardNumber,
-        expiryDate: expiryDate,
+        expiryMonth: expiryMonth,
+        expiryYear: expiryYear,
         securityCode: securityCode
       }
       console.log(payment);
       axios.post('http://localhost:3002/payments/create', payment)
       .then(() => {
           console.log("New payment added")
-      });
+      }).catch((error) => {
+        console.log(error.message)
+    })
 
 
 
@@ -60,9 +64,52 @@ const PaymentForm = ({handleClick}) => {
       <label  className="form-label"/>
       <input type="text" name="security_code" className="form-control" placeholder="Security Code" pattern="[0-9]{3}" minLength={3} maxLength={3} value={securityCode} onChange={(e) => setSecurityCode(e.target.value)} />
       <label className="form-label"/>
-      <div id = "expirey_date_div">
-      <label  className="form-label"/> Expiry Date
-      <input type="date" name="expiry_month" className="form-control" placeholder="mm/dd/yyyy" value={expiryDate} onChange={(e) => setExpiryDate(e.target.value)}/>
+      
+      <div id = "expirydate-div">
+        <label  className="form-label"/> Expiry Month: &nbsp; &nbsp;
+
+        <select multiple={false} id="ratingSelectValue" onChange={(e) => setExpiryMonth(e.target.value)}>
+                            <option value="" disabled>Select</option>
+                            <option value="01">Jan</option>
+                            <option value="02">Feb</option>
+                            <option value="03">Mar</option>
+                            <option value="04">Apr</option>
+                            <option value="05">May</option>
+                            <option value="06">Jun</option>
+                            <option value="07">Jul</option>
+                            <option value="08">Aug</option>
+                            <option value="09">Sep</option>
+                            <option value="10">Oct</option>
+                            <option value="11">Nov</option>
+                            <option value="12">Dec</option>
+        </select>
+
+       <label  className="form-label"/> Expiry Year: &nbsp; &nbsp;
+
+        <select multiple={false} id="ratingSelectValue" onChange={(e) => setExpiryYear(e.target.value)}>
+                            <option value="" disabled>Select</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                            <option value="2031">2031</option>
+                            <option value="2032">2032</option>
+                            <option value="2033">2033</option>
+                            <option value="2034">2034</option>
+                            <option value="2035">2035</option>
+                            <option value="2036">2036</option>
+                            <option value="2037">2037</option>
+                            <option value="2038">2038</option>
+                            <option value="2039">2039</option>
+                            <option value="2040">2040</option>
+                            <option value="2041">2041</option>
+                            <option value="2042">2042</option>   
+        </select>
       </div>
       </div>
 
