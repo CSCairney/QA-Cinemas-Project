@@ -23,9 +23,15 @@ const MoviesSchema = new Schema({
         required: true
     },
 
-    // showing_times: {
-    //     times: [ShowingTimes]
-    // },
+    showingDates: {
+        type: Array,
+        required: true
+    },
+
+    showingTimes: {
+        type: Array,
+        required: true
+    },
 
     duration: {
         type: String,

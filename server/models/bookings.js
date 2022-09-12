@@ -34,6 +34,12 @@ const ConcessionSchema = new Schema({
 
 const BookingsSchema = new Schema({
 
+    orderId: {
+        type: Number,
+        default: 1,
+
+    },
+
     movieTitle: {
         type: String,
         required: true
@@ -66,8 +72,11 @@ const BookingsSchema = new Schema({
         required: true,
         min: 1
     },
+
     adult: Number,
+
     child: Number,
+
     concessions: ConcessionSchema
 });
 
