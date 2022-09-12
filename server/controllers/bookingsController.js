@@ -1,52 +1,62 @@
+const mongoose = require("mongoose");
 const { Bookings } = require("../models/bookings.js");
 
 module.exports = {
 
-    getAllBookings: (req, res) => {
-
-        Bookings.find({}, (err, result) => {
-            if (err) res.send(err);
-            res.status(200).send(result);
-        })
+    //Get all bookings from the database. 
+    getAllBookings: async (req, res) => {
+        try {
+            const getBookings = await Bookings.find();
+            res.status(200).json(getBookings);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
     },
 
+    //Get one booking from the database with maching ID.
     getById: async (req, res) => {
-
-        const booking = await Bookings.findById(req.params.id);
-
-        res.status(200).send(booking);
-
+        try {
+            if (!mongoose.Types.ObjectId.isValid(req.params.id))
+                return res.status(404).json({ message: `No booking with id: ${req.params.id}` });
+            const booking = await Bookings.findById(req.params.id);
+            res.status(200).json(booking);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
     },
 
-
-    createBookings: (req, res) => {
-        const booking = new Bookings(req.body);
-
-        booking.save().then((result) => {
-            const message =
-                `Booking confirmed! 
-            Film: ${result.movieTitle}
-            Date: ${result.date}
-            Time: ${result.time}
-            Seats: ${result.seats}`;
-            res.status(201).send(message).catch(err => { console.log(err); })
-        });
+    //Create new booking in the database. 
+    createBookings: async (req, res) => {
+        const createBooking = new Bookings(req.body);
+        try {
+            await createBooking.save();
+            res.status(201).json(createBooking);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
     },
 
-    updateBookings: (req, res) => {
-
-        Bookings.findByIdAndUpdate({ _id: req.params.id }, req.body, (err, result) => {
-            if (err) res.send(err);
-            res.status(202).send(`Updated booking`);
-        })
+    //Update booking in the database with maching ID.
+    updateBookings: async (req, res) => {
+        try {
+            if (!mongoose.Types.ObjectId.isValid(req.params.id))
+                return res.status(404).json({ message: `No booking with id: ${req.params.id}` });
+            const updateBooking = await Bookings.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true });
+            res.status(201).json(updateBooking);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
     },
 
-    deleteBookings: (req, res) => {
-
-        Bookings.findByIdAndDelete({ _id: req.params.id }, req.body, (err, result) => {
-            if (err) res.send(err);
-            res.status(202).send(`Deleted booking`);
-        })
+    //Delete booking from the database with maching ID.
+    deleteBookings: async (req, res) => {
+        try {
+            if (!mongoose.Types.ObjectId.isValid(req.params.id))
+                return res.status(404).json({ message: `No booking with id: ${req.params.id}` });
+            await Bookings.findByIdAndDelete({ _id: req.params.id });
+            res.status(201).json({ message: "Booking deleted successfully!" });
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
     }
-
 }

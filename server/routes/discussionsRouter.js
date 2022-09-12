@@ -1,16 +1,19 @@
 const router = require("express").Router();
-const discussionsController = require ("../controllers/discussionsController.js");
+const discussionsController = require("../controllers/discussionsController.js");
 
-// Get request for discussions,
-router.get("/getAll", discussionsController.getAllDiscussions );
+// Read request for all discussions,
+router.get("/getAll", discussionsController.getAllDiscussions);
 
-// Get request for discussions by ID,
-router.get("/getById/:id", discussionsController.getById );
+// Read request for discussions by ID,
+router.get("/getById/:id", discussionsController.getById);
 
-// Post request for discussions,
+// Read request for discussions by user name,
+router.get("/getByUser/:user", discussionsController.getByUser);
+
+// Create request for discussions,
 router.post("/create", discussionsController.createDiscussions);
 
-// Put request for discussions,
+// Update request for discussions,
 router.put("/update/:id", discussionsController.updateDiscussions);
 
 // Delete request for discussions,

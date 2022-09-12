@@ -34,33 +34,49 @@ const ConcessionSchema = new Schema({
 
 const BookingsSchema = new Schema({
 
+    orderId: {
+        type: Number,
+        default: 1,
+
+    },
+
     movieTitle: {
         type: String,
-        required: [true, "Title is required"]
+        required: true
     },
 
     date: {
         type: Date,
-        required: [true, "Date is required"]
+        required: true
     },
 
     time: {
         type: String,
-        required: [true, "ShowTime is Required"]
+        required: true
     },
 
     name: {
         type: String,
-        required: [true, "Name is required"]
+        required: true
     },
 
-    seats: {
-        type: Number,
-        required: true,
-        min: [1, "Must choose at least 1 seat"]
+    email: {
+        type: String,
+        required: [true, "Email is required"]
     },
+
+    phone: String,
+
+    seats: {
+        type: [String],
+        required: true,
+        min: 1
+    },
+
     adult: Number,
+
     child: Number,
+
     concessions: ConcessionSchema
 });
 
