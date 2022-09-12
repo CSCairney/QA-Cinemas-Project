@@ -1,12 +1,11 @@
 import Discussion from "./component/discussion/discussionsMessages";
+// import EmailForm from './component/contact/emailForm';
+// import PaymentForm from './component/payment/payment';
 
 function App() {
   return (
     <>
-    <div className="App">
-      <h1>WELCOME TO CINEMA</h1>
-    </div>
-    {/* <Discussion/> */}
+    <Discussion/>
     </>
   );
 }
