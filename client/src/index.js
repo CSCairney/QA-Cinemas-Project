@@ -1,17 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './component/App';
-import EmailForm from './component/emailForm';
+
+// import App from './App';
+// import EmailForm from './component/contact/emailForm';
+// import PaymentModal from './component/payment/paymentModal';
+// import Discussion from './component/discussion/discussionsMessages';
+// import BookingForm from './component/booking/bookings';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import PaymentForm from './component/payment/payment';
+import './index.css';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-    <EmailForm/>
+    <>
+    {/* <App /> */}
+    {/* <EmailForm/>*/}
+    {/* <PaymentModal/>  */}
+    {/* <Discussion/>*/}
+    {/* <BookingForm/>  */}
+
+    </>
   </React.StrictMode>
 );
 
