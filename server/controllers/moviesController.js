@@ -36,6 +36,33 @@ module.exports = {
         }
     },
 
+    //Get one movie from the database with maching movie title,director or actor.
+    getByQuery: async (req, res, next) => {
+        try {
+            const movie = await Movies.find({
+                $or: [
+                    { "title": { "$in": req.params.query } },
+                    { "directors": { "$in": req.params.query } },
+                    { "actors": { "$in": req.params.query } }
+                ]
+            });
+            (movie.length) ? res.status(200).json(movie) :
+                res.status(404).json({ message: `No document in movies collection containing: ${req.params.query}` });
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
+    },
+
+    //Get latest movies from the database, limited by number. 
+    getByLatest: async (req, res) => {
+        try {
+            const getMovies = await Movies.find().sort({ _id: -1 }).limit(req.params.num);
+            res.status(200).json(getMovies);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
+    },
+
     //Create new movie in the database. 
     createMovies: async (req, res) => {
         const createMovie = new Movies(req.body);
