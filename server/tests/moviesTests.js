@@ -14,7 +14,7 @@ describe("Testing functions in the movies", function () {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })
-            .then(() => console.log("Connected to movie Directory"))
+            .then(() => console.log("Connected to QACinema database test"))
             .catch(console.error);
     });
 
