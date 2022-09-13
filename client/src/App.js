@@ -7,9 +7,11 @@ import ListingTotal from "./component/listing/listingTotal";
 function App() {
   return (
     <>
+    <div style={{backgroundColor: '#333652'}}>
     {/* <Discussion/> */}
     <ListingPosters />
     <ListingTotal />
+    </div>
     </>
   );
 }

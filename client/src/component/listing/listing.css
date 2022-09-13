@@ -1,17 +1,24 @@
 .posterImage {
     display:flex;
-    box-shadow: 0 0 100px 1px rgb(100 100 100 / 40%);
+    box-shadow: 0 0 50px 5px rgb(100 100 100 / 40%);
     width: 300px;
     height: calc(300px*(16/9));
+    border-radius: 15px;
 
 }
 
 .moviePoster-Container {
+    background-color:#030303de;
+    padding:15px;
+    padding-top:50px;
+    padding-bottom:50px;
+    height: fit-content;
     display: flex;
     flex-direction:row;
     flex-flow:row wrap;
     justify-content: center;
-    /* justify-content: space-between; */
+    overflow: hidden;
+    
 }
 
 .MoviePosterItem {
@@ -22,11 +29,13 @@
 }
 
 #moviePosterTitle{
+    display: flex;
+    justify-content: center;
     padding-top: 2px;
-    padding-bottom: 15px;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 18px;
-    color: #333;
+    font-weight: 700;
+    color: rgb(170, 170, 170);
 
 }
 
@@ -34,4 +43,27 @@
     text-decoration: underline;
     color: #ff6600;
     text-decoration: none;     
+}
+
+.posterTitleArea {
+    background-color: #333652;
+    width: 100%;
+    display:flex;
+    flex-direction: row;    
+    }
+
+.posterTitle{
+    margin-top:10px;
+    display:flex;
+    justify-content: space-evenly;
+    order: 0;
+    flex: 1 1 auto;
+    color: rgb(170, 170, 170);
+    font-size: 26px;
+    font-weight: 700;
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
 }

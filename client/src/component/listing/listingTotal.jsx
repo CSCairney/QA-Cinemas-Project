@@ -22,6 +22,10 @@ const ListingTotal = () => {
     }, [])
 
         return (
+            <>
+            <div className="posterTitleArea">
+                <p className="posterTitle">All Showings Today</p>
+            </div>
             <div className="accordion">
                 {movies?.map((movie) => (                    
                     <div className="accordion-item" key={movie._id}>
@@ -41,13 +45,13 @@ const ListingTotal = () => {
                                             <h5><strong>Release Date: </strong> {movie.release_date}</h5>
                                         </div>
                                     
-                                    <div className="listingStaff">
-                                        <p><strong>Directors:</strong> {movie.directors}</p>
-                                        <p><strong>Actors: </strong>{movie.actors}</p>
-                                    </div>
-                                    <div className="listingDescription">
-                                        <p className="listingDescription">{movie.description}</p>
-                                    </div>  
+                                        <div className="listingStaff">
+                                            <p><strong>Directors:</strong> {movie.directors}</p>
+                                            <p><strong>Actors: </strong>{movie.actors}</p>
+                                        </div>
+                                        <div className="listingDescription">
+                                            <p className="listingDescription">{movie.description}</p>
+                                        </div>  
                                     </div>
                                 </div>  
                                 <div className="listingTrailer">
@@ -58,6 +62,7 @@ const ListingTotal = () => {
                     </div>
                 ))}
             </div>
+            </>
             
 
         )
