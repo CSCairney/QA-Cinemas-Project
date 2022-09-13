@@ -2,12 +2,14 @@
 // import EmailForm from './component/contact/emailForm';
 // import PaymentForm from './component/payment/payment';
 import ListingPosters from "./component/listing/listingPosters";
+import ListingTotal from "./component/listing/listingTotal";
 
 function App() {
   return (
     <>
     {/* <Discussion/> */}
     <ListingPosters />
+    <ListingTotal />
     </>
   );
 }
