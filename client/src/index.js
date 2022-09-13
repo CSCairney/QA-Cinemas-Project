@@ -7,7 +7,8 @@ import ReactDOM from 'react-dom/client';
 // import BookingForm from './component/booking/bookings';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import SearchBar from './component/search/search';
+// import SearchBar from './component/search/search';
+import Search from './component/search/searchBar';
 // import Posts from './component/search/searchbar';
 
 
@@ -22,7 +23,7 @@ root.render(
     {/* <Discussion/>*/}
     {/* <BookingForm/>  */}
     {/* <SearchBar/> */}
-    
+    <Search/>
     </>
   </React.StrictMode>
 );
