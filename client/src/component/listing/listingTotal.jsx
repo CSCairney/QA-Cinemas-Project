@@ -51,7 +51,7 @@ const ListingTotal = () => {
                                     </div>
                                 </div>  
                                 <div className="listingTrailer">
-                                    <iframe width="1120" height="630" src={movie.trailer} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                    <iframe width="896" height="504" src={movie.trailer} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                 </div>                            
                             </div>
                         </div>
