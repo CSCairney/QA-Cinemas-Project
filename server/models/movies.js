@@ -47,6 +47,21 @@ const MoviesSchema = new Schema({
     poster: {
         type: String,
         required: false
+    },
+
+    widePoster: {
+        type: String,
+        required: false
+    },
+
+    description: {
+        type: String,
+        required: false
+    },
+
+    trailer: {
+        type: String,
+        required: false
     }
 });
 
