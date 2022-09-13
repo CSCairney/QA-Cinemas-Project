@@ -45,3 +45,16 @@ input {
     height: 50px;
     font-size: 15pt;
 }
+
+#price-guide {
+    background: none!important;
+  border: none;
+  padding: 0!important;
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#concessions-prices {
+    display: none;
+}
