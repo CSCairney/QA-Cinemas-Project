@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
 // import App from './App';
 // import EmailForm from './component/contact/emailForm';
 //import PaymentModal from './component/payment/paymentModal';
@@ -8,6 +7,8 @@ import ReactDOM from 'react-dom/client';
 // import BookingForm from './component/booking/bookings';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
+import SearchBar from './component/search/search';
+// import Posts from './component/search/searchbar';
 
 
 
@@ -20,7 +21,8 @@ root.render(
     {/*<PaymentModal/> */}
     {/* <Discussion/>*/}
     {/* <BookingForm/>  */}
-
+    {/* <SearchBar/> */}
+    
     </>
   </React.StrictMode>
 );

@@ -41,9 +41,9 @@ module.exports = {
         try {
             const movie = await Movies.find({
                 $or: [
-                    { "title": { "$in": req.params.query } },
-                    { "directors": { "$in": req.params.query } },
-                    { "actors": { "$in": req.params.query } }
+                    { "title": new RegExp(req.params.query, 'gi') },
+                    { "directors": new RegExp(req.params.query, 'gi') },
+                    { "actors": new RegExp(req.params.query, 'gi') }
                 ]
             });
             (movie.length) ? res.status(200).json(movie) :
