@@ -41,9 +41,9 @@ module.exports = {
         try {
             const movie = await Movies.find({
                 $or: [
-                    { "title": { "$in": req.params.query } },
-                    { "directors": { "$in": req.params.query } },
-                    { "actors": { "$in": req.params.query } }
+                    { "title": new RegExp(req.params.query, 'gi') },
+                    { "directors": new RegExp(req.params.query, 'gi') },
+                    { "actors": new RegExp(req.params.query, 'gi') }
                 ]
             });
             (movie.length) ? res.status(200).json(movie) :
@@ -53,10 +53,10 @@ module.exports = {
         }
     },
 
-    //Get latest movies from the database, limited by number. 
+    //Get movie from the database by negative index number. 
     getByLatest: async (req, res) => {
         try {
-            const getMovies = await Movies.find().sort({ _id: -1 }).limit(req.params.num);
+            const getMovies = (await Movies.find()).at(-req.params.num);
             res.status(200).json(getMovies);
         } catch (error) {
             res.status(404).json({ message: error.message });
