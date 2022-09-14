@@ -16,6 +16,9 @@ router.get("/getByQuery/:query", moviesController.getByQuery);
 // Read request for latest movie by negative index number,
 router.get("/getByLatest/:num", moviesController.getByLatest);
 
+// Read request for latest movie by positive index number,
+router.get("/getByOldest/:num", moviesController.getByOldest);
+
 // Create request for movies,
 router.post("/create", moviesController.createMovies);
 
