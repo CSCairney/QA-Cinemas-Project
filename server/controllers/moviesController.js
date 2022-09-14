@@ -63,6 +63,16 @@ module.exports = {
         }
     },
 
+    //Get movie from the database by positive index number.
+    getByOldest: async (req, res) => {
+        try {
+            const getMovies = await Movies.find().sort({ _id: 1 }).limit(req.params.num);
+            res.status(200).json(getMovies);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
+    },
+
     //Create new movie in the database. 
     createMovies: async (req, res) => {
         const createMovie = new Movies(req.body);

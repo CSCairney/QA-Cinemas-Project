@@ -6,15 +6,9 @@ import {useState, useEffect } from "react";
 const ListingPosters = () => {
     const [movies, setMovies] = useState([]);
 
-    const [index, setIndex] = useState(0);
-
-    const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-    };
-
     useEffect(() => {
 
-        axios.get('http://localhost:3002/movies/getByLatest/5')
+        axios.get('http://localhost:3002/movies/getByOldest/5')
             .then((result) => {
                 setMovies(result.data);
             }).catch((err) => {

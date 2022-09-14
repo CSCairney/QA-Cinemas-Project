@@ -1,7 +1,6 @@
 .latestGallery{
     background-color:#030303de;
     padding:0;
-    padding-top:50px;
     padding-bottom:50px;
     height: fit-content;
     display: flex;
@@ -18,16 +17,19 @@
     width: 100%;
     height: fit-content;
     padding-top:50px;
+    
 }
 
 .Carousel.Item{
     height: 600px;
     width: calc(600px*(16/9));
+    
 }
 
 .d-block{
     height: 600px;
     width: calc(600px*(16/9));
+    
 }
 
 .movieLatestTitle{

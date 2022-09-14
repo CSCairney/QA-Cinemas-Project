@@ -116,7 +116,17 @@ describe("Testing functions in the movies", function () {
             .end(function (err, res) {
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);
-                expect(res.body).to.include({ title: "Thor" });
+                expect(res.body[0]).to.include({ title: "Thor" });
+                done();
+            });
+    });
+
+    it("Should return oldest movie added with status 200", function (done) {
+        chai.request(app).get('/movies/getByOldest/1')
+            .end(function (err, res) {
+                expect(err).to.be.null;
+                expect(res).to.have.status(200);
+                expect(res.body[0]).to.include({ title: "Thor" });
                 done();
             });
     });

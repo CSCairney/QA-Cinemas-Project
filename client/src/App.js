@@ -9,8 +9,8 @@ function App() {
   return (
     <>
     <div style={{backgroundColor: '#333652'}}>
-    <ListingPosters/>
     <ListingLatest/>
+    <ListingPosters/>
     <ListingTotal/> 
     {/* <Classification/> */}
     {/* <EmailForm/> */}
