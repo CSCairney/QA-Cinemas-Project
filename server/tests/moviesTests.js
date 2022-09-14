@@ -14,7 +14,7 @@ describe("Testing functions in the movies", function () {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })
-            .then(() => console.log("Connected to QACinema database test"))
+            .then(() => console.log("Connected to QACinema test database"))
             .catch(console.error);
     });
 
@@ -41,17 +41,18 @@ describe("Testing functions in the movies", function () {
             .catch((err) => console.error(err));
     });
 
-    it("Should complete getAll request with status 200", function (done) {
+    it("Should return all movies with status 200", function (done) {
         chai.request(app).get("/movies/getAll")
             .end(function (err, res) {
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);
                 expect(res.body).to.have.lengthOf.above(0);
+                expect(res.body[0]).to.include({ title: "Thor" });
                 done();
             });
     });
 
-    it("Should return one movie by Id with status 200", function (done) {
+    it("Should return one movie by ID with status 200", function (done) {
         chai.request(app).get(`/movies/getById/${id}`)
             .end(function (err, res) {
                 expect(err).to.be.null;
@@ -61,7 +62,7 @@ describe("Testing functions in the movies", function () {
             });
     });
 
-    it("Should return error message when invalid Id is typed with status 404", function (done) {
+    it("Should return error message when invalid ID is typed with status 404", function (done) {
         chai.request(app).get(`/movies/getById/112233`)
             .end(function (err, res) {
                 expect(err).to.be.null;
@@ -116,7 +117,7 @@ describe("Testing functions in the movies", function () {
             .end(function (err, res) {
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);
-                expect(res.body).to.include({ title: "Thor" });
+                expect(res.body[0]).to.include({ title: "Thor" });
                 done();
             });
     });
@@ -141,7 +142,7 @@ describe("Testing functions in the movies", function () {
             });
     });
 
-    it("Should update movie with a maching ID with status 201", function (done) {
+    it("Should update the movie with a maching ID with status 201", function (done) {
         const requestBody = {
             title: "Thor 2",
             release_date: "2013-01-01T00:00:00.000Z",
@@ -162,7 +163,7 @@ describe("Testing functions in the movies", function () {
 
     });
 
-    it("Should return error message when invalid id is typed when updating with status 404", function (done) {
+    it("Should return error message when invalid ID is typed when updating with status 404", function (done) {
         chai.request(app).put(`/movies/update/112233`)
             .end(function (err, res) {
                 expect(err).to.be.null;
@@ -182,7 +183,7 @@ describe("Testing functions in the movies", function () {
             });
     });
 
-    it("Should return error message when invalid id is typed when deleting with status 404", function (done) {
+    it("Should return error message when invalid ID is typed when deleting with status 404", function (done) {
         chai.request(app).delete(`/movies/delete/112233`)
             .end(function (err, res) {
                 expect(err).to.be.null;
