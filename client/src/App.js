@@ -1,4 +1,5 @@
 
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ContactUs from "./Pages/contactus";
 import Cinemanavbar from "./component/Cinemanavbar/cinemanavbar";

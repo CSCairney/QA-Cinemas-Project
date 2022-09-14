@@ -11,7 +11,7 @@ const DiscussionsSchema = new Schema({
     timestamps: {
         type: Date,
         default: Date.now,
-        required: true
+        required: false
     },
 
     subjectMovie: {

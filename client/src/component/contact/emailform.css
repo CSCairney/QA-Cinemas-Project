@@ -9,5 +9,17 @@
   margin-left:10px;
   margin-right:10px;
   padding:20px;
+}
+.p{
+  color:#FAD02C;
+}
+.Button{
+  display: inline-block;
+  --bs-btn-padding-x:18rem;
+  --bs-btn-padding-y:0.4rem;
   
+  padding: 0.4rem;
+}
+.message_success{
+  color:#FAD02C;
 }

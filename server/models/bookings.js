@@ -4,41 +4,44 @@ const { Schema, model } = mongoose;
 const ConcessionSchema = new Schema({
 
     popcorn: {
-        type: String,
-        enum: ["Sweet", "Salted", "Sweet & Salted"],
+        type: Array,
+        flavour: {
+            type: String,
+            enum: ["", "Sweet", "Salted", "Sweet & Salted"]
+        },
         amount: Number,
         size: {
             type: String,
-            enum: ["Small", "Medium", "Large"]
+            enum: ["", "Small", "Large"]
         }
     },
     nachos: {
-        type: String,
-        enum: ["Cheesy", "Salsa"],
+        type: Array,
+        flavour: {
+            type: String,
+            enum: ["", "Cheesy", "Salsa"]
+        },
         amount: Number,
         size: {
             type: String,
-            enum: ["Small", "Large"]
+            enum: ["", "Small", "Large"]
         }
     },
     drink: {
-        type: String,
-        enum: ["Fanta", "Sprite", "Pepsi", "Pepsi Max", "J2O"],
+        type: Array,
+        flavour: {
+            type: String,
+            enum: ["", "Fanta", "Sprite", "Pepsi", "Pepsi Max", "J2O"]
+        },
         amount: Number,
         size: {
             type: String,
-            enum: ["Small", "Large"]
+            enum: ["", "Small", "Large"]
         }
     }
 });
 
 const BookingsSchema = new Schema({
-
-    orderId: {
-        type: Number,
-        default: 1,
-
-    },
 
     movieTitle: {
         type: String,
@@ -46,7 +49,7 @@ const BookingsSchema = new Schema({
     },
 
     date: {
-        type: Date,
+        type: String,
         required: true
     },
 
@@ -77,7 +80,7 @@ const BookingsSchema = new Schema({
 
     child: Number,
 
-    concessions: ConcessionSchema
+    concessions: [ConcessionSchema]
 });
 
 const Bookings = model("Bookings", BookingsSchema);
