@@ -1,7 +1,12 @@
 import axios from 'axios';
 import React from 'react';
+import './searchBar.css';
 import {useEffect, useState} from 'react';
 import SearchResults from './searchResults';
+
+import Form from 'react-bootstrap/Form';
+
+// import Button from 'react-bootstrap/Button';
 
 
 const Search = () => {
@@ -20,7 +25,7 @@ const Search = () => {
             })
     }, [query]);
 
-    
+
     const Search = (movies) => {
         return movies.filter((movie) => {
         if (query === "") {
@@ -36,17 +41,23 @@ const Search = () => {
     return (
         <div className="SearchResults">
             
-                <input type="text"
-                       icon="search"
-                       className={"input"}
-                       placeholder={"Search Movies by Title, Actor & Director"}
-                       onChange={event => setQuery(event.target.value)}
-                       value={query}
+            
+                <Form id="searchForm" className="d-flex">
+                <Form.Control
+                id="searchInput"
+                type="search"
+                placeholder="Search Movies by Title, Actor & Director..."
+                className="me-2"
+                aria-label="Search"
+                icon="search"
+                onChange={event => setQuery(event.target.value)}
                 />
-                
-                <SearchResults data = {Search(movies)}/>
-                    
+                {/* <Button variant="outline-success"> Search</Button> */}
+                </Form> 
+            
 
+                <SearchResults type = "submit" data = {Search(movies)}/>
+                    
         </div>
 
     );
