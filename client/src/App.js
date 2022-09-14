@@ -10,7 +10,16 @@ function App() {
     <Router>
       <Cinemanavbar/>
       <Routes>
+        <Route path="/" element= {<Home/>} />
         <Route path="/ContactUs" element= {<ContactUs/>} />
+        <Route path="/ContactUs" element= {<ContactUs/>} />
+        <Route path="/ContactUs" element= {<ContactUs/>} />
+        <Route path="/ContactUs" element= {<ContactUs/>} />
+        <Route path="/ContactUs" element= {<ContactUs/>} />
+        <Route path="/ContactUs" element= {<ContactUs/>} />
+        <Route path="/ContactUs" element= {<ContactUs/>} />
+        <Route path="/ContactUs" element= {<ContactUs/>} />
+        
       </Routes>
     </Router>
   );
