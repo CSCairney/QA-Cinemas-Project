@@ -3,14 +3,20 @@
 // import PaymentForm from './component/payment/payment';
 import ListingPosters from "./component/listing/listingPosters";
 import ListingTotal from "./component/listing/listingTotal";
+import ListingLatest from "./component/listing/listingLatest";
 
 function App() {
   return (
     <>
     <div style={{backgroundColor: '#333652'}}>
+    <ListingPosters/>
+    <ListingLatest/>
+    <ListingTotal/> 
+    {/* <Classification/> */}
+    {/* <EmailForm/> */}
+    {/* <PaymentForm/> */}
     {/* <Discussion/> */}
-    <ListingPosters />
-    <ListingTotal />
+    {/* <GettingTherePage/> */}
     </div>
     </>
   );

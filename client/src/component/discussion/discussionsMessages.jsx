@@ -52,7 +52,7 @@ const Discussion = () => {
           
         return (
             
-            <div className="discussionBG">
+            <div>
                 <form onSubmit={addDiscussionMessage} id="discussionForm">
                     <h1>New Discussion</h1>
                     <div className="mb-3">

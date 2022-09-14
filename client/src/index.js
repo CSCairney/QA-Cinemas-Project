@@ -17,11 +17,6 @@ root.render(
   <React.StrictMode>
     <>
     <App />
-    {/* <EmailForm/>*/}
-    {/*<PaymentModal/> */}
-    {/* <Discussion/> */}
-    {/* <BookingForm/>  */}
-
     </>
   </React.StrictMode>
 );
