@@ -14,7 +14,7 @@ describe("Testing functions in the bookings", function () {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })
-            .then(() => console.log("Connected to QACinema database test"))
+            .then(() => console.log("Connected to QACinema test database"))
             .catch(console.error);
     });
 
@@ -22,14 +22,14 @@ describe("Testing functions in the bookings", function () {
     beforeEach((done) => {
         Bookings.deleteMany({})
             .then(() => {
-                Bookings.create({                    
-                movieTitle: "Thor",            
-                date: "2022-01-01T00:00:00.000Z",            
-                time: "12",            
-                name: "rob",            
-                email: "rob@rob.com",                   
-                seats: "1"
-            })
+                Bookings.create({
+                    movieTitle: "Thor",
+                    date: "2022-01-01T00:00:00.000Z",
+                    time: "12",
+                    name: "rob",
+                    email: "rob@rob.com",
+                    seats: "1"
+                })
                     .then((result) => {
                         id = result._id;
                         done();
@@ -39,17 +39,18 @@ describe("Testing functions in the bookings", function () {
             .catch((err) => console.error(err));
     });
 
-    it("Should complete getAll request with status 200", function (done) {
+    it("Should return all bookings with status 200", function (done) {
         chai.request(app).get("/bookings/getAll")
             .end(function (err, res) {
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);
                 expect(res.body).to.have.lengthOf.above(0);
+                expect(res.body[0]).to.include({ movieTitle: "Thor" });
                 done();
             });
     });
 
-    it("Should return one booking by Id with status 200", function (done) {
+    it("Should return one booking by ID with status 200", function (done) {
         chai.request(app).get(`/bookings/getById/${id}`)
             .end(function (err, res) {
                 expect(err).to.be.null;
@@ -59,7 +60,7 @@ describe("Testing functions in the bookings", function () {
             });
     });
 
-    it("Should return error message when invalid Id is typed with status 404", function (done) {
+    it("Should return error message when invalid ID is typed with status 404", function (done) {
         chai.request(app).get(`/bookings/getById/112233`)
             .end(function (err, res) {
                 expect(err).to.be.null;
@@ -69,13 +70,13 @@ describe("Testing functions in the bookings", function () {
             });
     });
 
-    it("Should create a new movie with status 201", function (done) {
-        const requestBody = {                    
-            movieTitle: "Thor 2",            
-            date: "2022-01-01T00:00:00.000Z",            
-            time: "12",            
-            name: "rob",            
-            email: "rob@rob.com",                   
+    it("Should create a new booking with status 201", function (done) {
+        const requestBody = {
+            movieTitle: "Thor 2",
+            date: "2022-01-01T00:00:00.000Z",
+            time: "12",
+            name: "rob",
+            email: "rob@rob.com",
             seats: "1"
         };
         chai.request(app).post("/bookings/create")
@@ -87,13 +88,13 @@ describe("Testing functions in the bookings", function () {
             });
     });
 
-    it("Should update movie with a maching ID with status 201", function (done) {
-        const requestBody = {                    
-            movieTitle: "Thor 2",            
-            date: "2022-01-01T00:00:00.000Z",            
-            time: "12",            
-            name: "rob",            
-            email: "rob@rob.com",                   
+    it("Should update the booking with a maching ID with status 201", function (done) {
+        const requestBody = {
+            movieTitle: "Thor 2",
+            date: "2022-01-01T00:00:00.000Z",
+            time: "12",
+            name: "rob",
+            email: "rob@rob.com",
             seats: "1"
         };
         chai.request(app).put(`/bookings/update/${id}`)
@@ -126,7 +127,7 @@ describe("Testing functions in the bookings", function () {
             });
     });
 
-    it("Should return error message when invalid id is typed when deleting with status 404", function (done) {
+    it("Should return error message when invalid ID is typed when deleting with status 404", function (done) {
         chai.request(app).delete(`/bookings/delete/112233`)
             .end(function (err, res) {
                 expect(err).to.be.null;

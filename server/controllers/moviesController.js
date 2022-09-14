@@ -56,7 +56,7 @@ module.exports = {
     //Get movie from the database by negative index number. 
     getByLatest: async (req, res) => {
         try {
-            const getMovies = (await Movies.find()).at(-req.params.num);
+            const getMovies = await Movies.find().sort({ _id: -1 }).limit(req.params.num);
             res.status(200).json(getMovies);
         } catch (error) {
             res.status(404).json({ message: error.message });
