@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 // import App from './App';
 // import EmailForm from './component/contact/emailForm';
 //import PaymentModal from './component/payment/paymentModal';
@@ -10,6 +11,7 @@ import './index.css';
 // import SearchBar from './component/search/search';
 import Search from './component/search/searchBar';
 // import Posts from './component/search/searchbar';
+import './App.css';
 
 
 
@@ -17,6 +19,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <>
+
     {/* <App /> */}
     {/* <EmailForm/>*/}
     {/*<PaymentModal/> */}
@@ -24,6 +27,7 @@ root.render(
     {/* <BookingForm/>  */}
     {/* <SearchBar/> */}
     <Search/>
+
     </>
   </React.StrictMode>
 );
