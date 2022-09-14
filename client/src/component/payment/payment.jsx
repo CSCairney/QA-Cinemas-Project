@@ -69,7 +69,7 @@ const PaymentForm = ({handleClick}) => {
         <label  className="form-label"/> Expiry Month: &nbsp; &nbsp;
 
         <select multiple={false} id="ratingSelectValue" onChange={(e) => setExpiryMonth(e.target.value)}>
-                            <option value="" disabled>Select</option>
+                            <option>Select</option>
                             <option value="01">Jan</option>
                             <option value="02">Feb</option>
                             <option value="03">Mar</option>
@@ -87,7 +87,7 @@ const PaymentForm = ({handleClick}) => {
        <label  className="form-label"/> Expiry Year: &nbsp; &nbsp;
 
         <select multiple={false} id="ratingSelectValue" onChange={(e) => setExpiryYear(e.target.value)}>
-                            <option value="" disabled>Select</option>
+                            <option>Select</option>
                             <option value="2022">2022</option>
                             <option value="2023">2023</option>
                             <option value="2024">2024</option>
