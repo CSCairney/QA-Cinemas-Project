@@ -1,18 +1,18 @@
-// import Discussion from "./component/discussion/discussionsMessages";
-// import EmailForm from './component/contact/emailForm';
-// import PaymentForm from './component/payment/payment';
-import ListingPosters from "./component/listing/listingPosters";
-import ListingTotal from "./component/listing/listingTotal";
+
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ContactUs from "./Pages/contactus";
+import Cinemanavbar from "./component/Cinemanavbar/cinemanavbar";
+import './App.css'
 
 function App() {
   return (
-    <>
-    <div style={{backgroundColor: '#333652'}}>
-    {/* <Discussion/> */}
-    <ListingPosters />
-    <ListingTotal />
-    </div>
-    </>
+    <Router>
+      <Cinemanavbar/>
+      <Routes>
+        <Route path="/ContactUs" element= {<ContactUs/>} />
+      </Routes>
+    </Router>
   );
 }
 
