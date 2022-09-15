@@ -1,20 +1,38 @@
-import React from "react"
-import "./searchResults.css"
+import React from "react";
+import axios from 'axios';
+import './listingTotal.css';
+import {useState, useEffect } from "react";
 
-const SearchResults = ({data}) =>{ 
 
-return(
+const ListingLatestTotal = () => {
+    const [movies, setMovies] = useState([]);
+    // const [showAccordion, setShowAccordion] = useState(true);
+    // this.toggleAccordion = this.toggleAccordion.bind(this);
+    
+    useEffect(() => {
 
-    <>
+        axios.get('http://localhost:3002/movies/getByLatest/5')
+            .then((result) => {
+                setMovies(result.data);
+            }).catch((err) => {
+                console.log(err.message);
+            })
+
+
+    }, [])
+
+        return (
+            <>
             <div className="posterTitleArea">
-                <br/>
-                <h3 className="posterTitle">Search Results</h3>
-                <br/>
+                <p className="posterTitle">Up Coming Movie Details</p>
             </div>
             <div className="accordion">
-                {data.map((movie) => (                    
+                {movies?.map((movie) => (                    
                     <div className="accordion-item" key={movie._id}>
-                       
+                        <h2 className="accordion-header" id="headingOne">
+                            <button className="accordion-button" type="button">
+                            </button>
+                        </h2>
                     <div id="collapseOne" className="accordion-collapse collapse show">
                             <div className="accordion-body" id="listingItem">
                                 <div className="listingTextArea">
@@ -24,12 +42,12 @@ return(
                                         </div>
                                         <div className="listingDetails">
                                             <h5><strong>Classification: </strong> {movie.rating}</h5>
-                                            <h5><strong>Release Date: </strong> {movie.release_date.slice(0,[10])}</h5>
+                                            <h5><strong>Release Date: </strong> {movie.release_date}</h5>
                                         </div>
                                     
                                         <div className="listingStaff">
-                                            <p><strong>Directors:</strong> {movie.directors.join(', ')}</p>
-                                            <p><strong>Actors: </strong>{movie.actors.join(', ')}</p>
+                                            <p><strong>Directors:</strong> {movie.directors}</p>
+                                            <p><strong>Actors: </strong>{movie.actors}</p>
                                         </div>
                                         <div className="listingDescription">
                                             <p className="listingDescription">{movie.description}</p>
@@ -45,14 +63,12 @@ return(
                 ))}
             </div>
             </>
+            
 
+        )
 
+    
 
+}
 
-
-
-
- )}
-
-
- export default SearchResults;
+export default ListingLatestTotal;

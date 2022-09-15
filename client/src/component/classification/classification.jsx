@@ -4,13 +4,14 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
+
 const Classification = () => {
   return (
     <div className="forms">
     <Row col-xs={12} sm={6} md={4} className="g-4">
 
       <Col>
-        <Card style={{ width: "18rem" }}>
+        <Card id="cardone"style={{ width: "18rem" }}>
           <Card.Img
             alt="Universal"
             variant="top"
@@ -26,7 +27,7 @@ const Classification = () => {
         </Card>
       </Col>
       <Col>
-        <Card style={{ width: "18rem" }}>
+        <Card id="cardone" style={{ width: "18rem" }}>
           <Card.Img
             alt="Parental Guidance"
             variant="top"
@@ -43,7 +44,7 @@ const Classification = () => {
         </Card>
       </Col>
       <Col>
-        <Card style={{ width: "18rem" }}>
+        <Card id="cardone" style={{ width: "18rem" }}>
           <Card.Img
             alt="12"
             variant="top"
@@ -60,7 +61,7 @@ const Classification = () => {
       </Col>
 
       <Col>
-        <Card style={{ width: "18rem" }}>
+        <Card id="cardone" style={{ width: "18rem" }}>
           <Card.Img
             alt="hello"
             variant="top"
@@ -77,7 +78,7 @@ const Classification = () => {
       </Col>
     
      <Col>
-        <Card style={{ width: "18rem" }}>
+        <Card id="cardone" style={{ width: "18rem" }}>
           <Card.Img
             alt="15"
             variant="top"
@@ -94,7 +95,7 @@ const Classification = () => {
       </Col>
 
       <Col>
-        <Card style={{ width: "18rem" }}>
+        <Card id="cardone" style={{ width: "18rem" }}>
           <Card.Img
             alt="hello"
             variant="top"
@@ -112,7 +113,7 @@ const Classification = () => {
       </Col>
 
       <Col>
-        <Card  style={{ width: "18rem" }}>
+        <Card  id="cardone" style={{ width: "18rem" }}>
           <Card.Img
             alt="R18"
             variant="top"
@@ -126,10 +127,24 @@ const Classification = () => {
             </Card.Text>
           </Card.Body>
         </Card>
-      </Col>
-     
-    </Row>
-    </div>
+      </Col> </Row>
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img id="pic" src="#" alt="Avatar" style="width:300px;height:300px;"/>
+                   </div>
+            <div class="flip-card-back">
+              <h1>John Doe</h1>
+              <p>Architect & Engineer</p>
+              <p>We love that guy</p>
+            </div>
+          </div>
+              </div>
+            </div>
+              
+    
+
+    
   );
 };
 export default Classification;
