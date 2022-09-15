@@ -14,7 +14,8 @@ import TravelTrain from './Pages/train';
 import TravelCar from './Pages/car';
 import AddressPage from './Pages/address';
 import AboutUs from './Pages/aboutus';
-import SearchBar from './Pages/searchbar';
+import SearchBar from './Pages/searchbarpage';
+import SearchBarPage from './Pages/searchbarpage';
 
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
         <Route path="/EmailForm" element= {<ContactUs/>} />
         <Route path="/Address" element= {<AddressPage/>} />
         <Route path="/AboutUs" element= {<AboutUs/>} />
-        <Route path="/Search" element={<SearchBar/>}/>
+        <Route path="/Search" element={<SearchBarPage/>}/>
         
       </Routes>
     </Router>
