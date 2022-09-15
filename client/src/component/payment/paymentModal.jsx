@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import PaymentForm from "./payment"
 import "./paymentModal.jsx";
 
-export default function Modal() {
+export default function PaymentModal({payAmount}) {
   const [toggle, setToggle] = useState(false);
+  
 
   const toggleModal = () => {
     setToggle(!toggle);
+    
   };
 
   if(toggle) {
@@ -17,13 +19,13 @@ export default function Modal() {
 
   return (
     <>
-      <button onClick={toggleModal} className="btn-modal">
+      <button variant="success" type="button" onClick={toggleModal} className="btn btn-success">
         Proceed to payment
       </button>
 
        {toggle &&
           <> 
-            <PaymentForm handleClick = {toggleModal}/>
+            <PaymentForm handleClick = {toggleModal} payAmount = {payAmount}/>
            
          </>
       }

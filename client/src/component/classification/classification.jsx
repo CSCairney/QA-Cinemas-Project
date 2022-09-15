@@ -3,6 +3,7 @@ import './classification.css'
 
 
 
+
 const Classification = () => {
   return (
     <div className="forms">
@@ -35,6 +36,7 @@ const Classification = () => {
                         </div>
                       </div>
                     </div>
+
 
                     <div className="col-xs-12 col-sm-6 col-md-4">
                       <div className="image-flip" >
@@ -135,6 +137,8 @@ const Classification = () => {
                       </div>
                     </div>
 
+     
+
                     <div className="col-xs-12 col-sm-6 col-md-4">
                       <div className="image-flip" >
                         <div className="mainflip flip-0">
@@ -188,6 +192,7 @@ const Classification = () => {
             </div>
 
 
+
            
         </section>
                     
@@ -195,7 +200,7 @@ const Classification = () => {
         
                                
 
-    
+  
   );
 };
 export default Classification;

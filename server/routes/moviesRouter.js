@@ -13,8 +13,11 @@ router.get("/getByTitle/:title", moviesController.getByTitle);
 // Read request searching by movie title, director or actor,
 router.get("/getByQuery/:query", moviesController.getByQuery);
 
-// Read request for latest movies limited by number,
+// Read request for latest movie by negative index number,
 router.get("/getByLatest/:num", moviesController.getByLatest);
+
+// Read request for latest movie by positive index number,
+router.get("/getByOldest/:num", moviesController.getByOldest);
 
 // Create request for movies,
 router.post("/create", moviesController.createMovies);

@@ -21,7 +21,7 @@ const Discussion = () => {
                 message: discussionMessage
             }
             console.log(discussion)
-            axios.post('http://localhost:3002/discussions/create', discussion
+            axios.post('https://qacinema-362612.ey.r.appspot.com/discussions/create', discussion
             ).then(()=>{
                 console.log("New discussion message added")
                 window.location.reload(true);
@@ -42,7 +42,7 @@ const Discussion = () => {
 
     useEffect(() => {
 
-        axios.get('http://localhost:3002/discussions/getAll')
+        axios.get('https://qacinema-362612.ey.r.appspot.com/discussions/getAll')
             .then((result) => {
                 setDiscussions(result.data);
             })
@@ -52,8 +52,8 @@ const Discussion = () => {
           
         return (
             
-            <div className="discussionBG">
-                <form onSubmit={addDiscussionMessage} id="discussionForm">
+            <div className="totalDiscussion">
+                <form onSubmit={addDiscussionMessage} className="discussionForm">
                     <h1>New Discussion</h1>
                     <div className="mb-3">
                         <label htmlFor="usernameInput1" className="form-label">Username:</label>
@@ -86,12 +86,12 @@ const Discussion = () => {
                     <h1>Discussion Board</h1>
                     {discussions?.map((discussion) => (
                         <div key={discussion._id} className="discussion">
-                            <div id="username">Username: {discussion.username}</div>
-                            <div id="subjectMovie">Movie: {discussion.subjectMovie}</div>
+                            <div id="username"><strong>Username: </strong> {discussion.username}</div>
+                            <div id="subjectMovie"><strong>Movie: </strong> {discussion.subjectMovie}</div>
                             <hr/>
-                            <div id="message">{discussion.message}</div>
+                            <div id="message"><strong>Message: </strong>{discussion.message}</div>
                             <hr/>
-                            <div id="rating">Reviewer's rating: {discussion.rating}</div>
+                            <div id="rating"><strong>Reviewer's Rating: </strong> {discussion.rating}</div>
                             
                         </div>
                     ))}

@@ -1,0 +1,87 @@
+.card{
+   height: 100% !important; 
+   background-color: #E9EAEC !important;
+    
+}
+.mcard {
+    background-color: #FAD02C;
+}
+* {
+    font-family: Open Sans Condensed, sans-serif !important;
+    
+    
+}
+.standardScreen, .deluxeScreen{
+    /* color: red !important; */
+    margin-top:10px !important;
+    display:flex !important;
+    justify-content: space-evenly !important;
+    order: 0;
+    flex: 1 1 auto !important;
+    color: rgb(170, 170, 170) !important;
+    font-size: 26px ;
+    font-weight: 700;
+    font-family: 'Open Sans Condensed', sans-serif !important;
+    text-decoration: none !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+}
+.standardScreen {
+    padding-bottom: 0rem;
+}
+.deluxeScreen{
+    padding-top: 2.5rem;
+}
+.header-s {
+    margin-left: 1rem;
+    color: rgb(170, 170, 170) !important;
+    align-items: center;
+}
+.header-d {
+    margin-left: 1.5rem;
+    color: rgb(170, 170, 170) !important;
+    align-items: center;
+}
+.row {
+    margin-left: 1rem !important;
+}
+.pic  {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    
+}
+.card-body {
+    background-color: #030303de;
+    color: #E9EAEC !important;
+  
+    /* color:#FAD02C; */
+}
+.highlight{
+    color:#FAD02C;
+}
+.img {
+    width: 100% ; 
+    height: 58% ;
+}
+.imgc {
+    width: 100%;
+    height: 100%;
+}
+.imge {
+    height: 58%;
+}
+/* .kids {
+    margin-top: 0.5rem !important;
+} */
+.sound {
+    padding-top: 0rem;
+}
+.deluxpic {
+    margin-top: 0rem;
+}
+.deluxx {
+    /* margin-top: 1rem;
+    padding-top: 1.5rem; */
+}
