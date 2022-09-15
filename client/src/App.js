@@ -16,7 +16,7 @@ import AddressPage from './Pages/address';
 import AboutUs from './Pages/aboutus';
 import SearchBar from './Pages/searchbarpage';
 import SearchBarPage from './Pages/searchbarpage';
-
+import PaymentConfirmationPage from './Pages/paymentconfirmationpage';
 const backgroundColor = {backgroundColor: '#54587c'};
 
 function App() {
@@ -40,6 +40,7 @@ function App() {
         <Route path="/Address" element= {<AddressPage/>} />
         <Route path="/AboutUs" element= {<AboutUs/>} />
         <Route path="/Search" element={<SearchBarPage/>}/>
+        <Route path="/PaymentConfirmationPage" element={<PaymentConfirmationPage/>}/>
         
       </Routes>
     </Router>
