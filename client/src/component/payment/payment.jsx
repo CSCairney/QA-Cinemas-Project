@@ -54,11 +54,13 @@ const PaymentForm = ({handleClick, payAmount}) => {
   return (
     <div id="payment-modal">
     <div id="payment-overlay"></div>
+    
+    
     <div  id="paymentform-div">
       <form id="paymentform" ref={paymentForm} onSubmit={sendEmail}>
         <div className="mb-3">
         <label  className="form-label"/> Amount to Pay
-        <h3>£{payAmount}</h3>
+        <h3>&nbsp;£{payAmount}</h3>
         </div>
       <div className="mb-3">
       <label  className="form-label"/> Customer Details
@@ -124,7 +126,7 @@ const PaymentForm = ({handleClick, payAmount}) => {
       </div>
 
 
-      <Button variant="success" type="submit" value="Send" size="lg">Pay</Button>
+      <Button className="pay-btn" variant="success" type="submit" value="Send" size="lg">Pay</Button>
       <Button className="close-btn" variant="danger"  value="Send" size="lg" onClick={handleClick}>X</Button>
     
       </form>

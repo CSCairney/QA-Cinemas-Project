@@ -27,6 +27,9 @@
     overflow: auto;
 
     z-index: 1010;
+    /* display: flex;
+   justify-content: center; */
+    
   }
 
   #payment-overlay{
@@ -39,4 +42,18 @@
     height: 100%;
     background: rgba(49, 49, 49, 0.8);
 
+  }
+
+
+  .close-btn{
+   
+    position:absolute; top:0; right:0;
+    margin-top: 2%;
+    margin-right: 2%;
+    background-color: #333652;
+    border-style: none;
+  }
+  
+  .pay-btn{
+    width: 30%;
   }
