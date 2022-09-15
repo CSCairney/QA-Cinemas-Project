@@ -8,16 +8,16 @@ return(
     <>
             <div className="posterTitleArea">
                 <br/>
-                <h3 className="posterTitle">Search Results</h3>
+                <h3 className="posterTitle2">Search Results</h3>
                 <br/>
             </div>
-            <div className="accordion">
+            <div className="accordion2">
                 {data.map((movie) => (                    
                     <div className="accordion-item" key={movie._id}>
                        
-                    <div id="collapseOne" className="accordion-collapse collapse show">
-                            <div className="accordion-body" id="listingItem">
-                                <div className="listingTextArea">
+                    <div id="collapseOne2" className="accordion-collapse collapse show">
+                            <div className="accordion-body2" id="listingItem">
+                                <div className="listingTextArea2">
                                     <div className="listingMainDetails">
                                         <div className="listingTitle">
                                             <h3 id="listingTitle">{movie.title}</h3>
@@ -36,7 +36,7 @@ return(
                                         </div>  
                                     </div>
                                 </div>  
-                                <div className="listingTrailer">
+                                <div className="listingTrailer2">
                                     <iframe width="896" height="504" src={movie.trailer} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                 </div>                            
                             </div>

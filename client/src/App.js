@@ -17,11 +17,12 @@ import AboutUs from './Pages/aboutus';
 import SearchBar from './Pages/searchbarpage';
 import SearchBarPage from './Pages/searchbarpage';
 
+const backgroundColor = {backgroundColor: '#54587c'};
 
 function App() {
   return (
     <>
-    <div style={{backgroundColor: '#6699CC'}}>
+    <div style={backgroundColor}>
     <Router>
       <Cinemanavbar/>
       <Routes>

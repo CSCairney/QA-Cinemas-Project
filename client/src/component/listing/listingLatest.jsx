@@ -15,7 +15,7 @@ const ListingLatest = () => {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:3002/movies/getByTitle/Avatar: The Way of Water`)
+        axios.get(`https://qacinema-362612.ey.r.appspot.com/movies/getByTitle/Avatar: The Way of Water`)
             .then((result) => {
                 setMovieOne(result.data);
             }).catch((err) => {
@@ -28,7 +28,7 @@ const ListingLatest = () => {
     useEffect(() => {
 
         const movie = "Top Gun: Maverick";
-        axios.get(`http://localhost:3002/movies/getByTitle/Suzume no Tojimari`)
+        axios.get(`https://qacinema-362612.ey.r.appspot.com/movies/getByTitle/Suzume no Tojimari`)
             .then((result) => {
                 setMovieTwo(result.data);
             }).catch((err) => {
@@ -41,7 +41,7 @@ const ListingLatest = () => {
     useEffect(() => {
 
         
-        axios.get(`http://localhost:3002/movies/getByTitle/Amsterdam`)
+        axios.get(`https://qacinema-362612.ey.r.appspot.com/movies/getByTitle/Halloween Ends`)
             .then((result) => {
                 setMovieThree(result.data);
             }).catch((err) => {
@@ -54,7 +54,7 @@ const ListingLatest = () => {
     useEffect(() => {
 
         
-        axios.get(`http://localhost:3002/movies/getByTitle/Black Adam`)
+        axios.get(`https://qacinema-362612.ey.r.appspot.com/movies/getByTitle/Black Adam`)
             .then((result) => {
                 setMovieFour(result.data);
             }).catch((err) => {
