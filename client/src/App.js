@@ -15,11 +15,12 @@ import TravelCar from './Pages/car';
 import AddressPage from './Pages/address';
 import AboutUs from './Pages/aboutus';
 
+const backgroundColor = {backgroundColor: '#54587c'};
 
 function App() {
   return (
     <>
-    <div style={{backgroundColor: '#6699CC'}}>
+    <div style={backgroundColor}>
     <Router>
       <Cinemanavbar/>
       <Routes>

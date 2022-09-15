@@ -8,7 +8,7 @@ const ListingPosters = () => {
 
     useEffect(() => {
 
-        axios.get('http://localhost:3002/movies/getByOldest/5')
+        axios.get('https://qacinema-362612.ey.r.appspot.com/movies/getByOldest/5')
             .then((result) => {
                 setMovies(result.data);
             }).catch((err) => {

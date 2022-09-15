@@ -21,7 +21,7 @@ const Discussion = () => {
                 message: discussionMessage
             }
             console.log(discussion)
-            axios.post('http://localhost:3002/discussions/create', discussion
+            axios.post('https://qacinema-362612.ey.r.appspot.com/discussions/create', discussion
             ).then(()=>{
                 console.log("New discussion message added")
                 window.location.reload(true);
@@ -42,7 +42,7 @@ const Discussion = () => {
 
     useEffect(() => {
 
-        axios.get('http://localhost:3002/discussions/getAll')
+        axios.get('https://qacinema-362612.ey.r.appspot.com/discussions/getAll')
             .then((result) => {
                 setDiscussions(result.data);
             })

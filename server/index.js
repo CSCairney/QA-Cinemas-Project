@@ -19,7 +19,7 @@ app.use('/bookings', bookingsRouter);
 app.use('/discussions', discussionsRouter);
 
 // Connection to the database
-mongoose.connect('mongodb://127.0.0.1:27017/qacinema', {
+mongoose.connect('mongodb+srv://Admin:Admin1234@cluster0.syjcvks.mongodb.net/?retryWrites=true', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
