@@ -19,7 +19,7 @@ export default function PaymentModal({payAmount}) {
 
   return (
     <>
-      <button variant="success" type="button" onClick={toggleModal} className="btn btn-success">
+      <button variant="success" type="button" id="modalButton" onClick={toggleModal} className="btn btn-success">
         Proceed to payment
       </button>
 
