@@ -7,6 +7,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Link } from "react-router-dom";
+import {FaSearch} from "react-icons/fa";
 
 const Cinemanavbar = () => {
   const [show, setShow] = useState(false);
@@ -22,23 +23,31 @@ const Cinemanavbar = () => {
       <Container>
         <Navbar.Brand as={Link} to="/Home" className="d-inline-block">
           <img
-            src="#"
-            width="150rem"
-            height="150rem"
+            src="https://i.imgur.com/2NHKHd0.png"
+            width="200rem"
+            height="200rem"
             className="d-inline-block align-top"
             alt=" logo"
             as={Link}
             to="/Home"
           />
-          <h1 as={Link} to="/Home">
-            QA CINEMA
-          </h1>
         </Navbar.Brand>
       </Container>
       <Container id="box">
+        
+      <Nav.Link as={Link} to="/Search">
+       <FaSearch class="searchicon"/>
+      </Nav.Link>
+       
+
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" />
         <Nav className="me-auto">
+
+        
+         
+         
+
           <Dropdown>
             <Dropdown.Toggle  id="dropdown-basic" style={{color:"#FAD02C",backgroundColor:"#333652",borderStyle:"none",padding:"8px",fontSize:"x-large"}}>
               MOVIES
