@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
 const PaymentSchema = new Schema({
+    totalAmount: {
+        type: Number,
+        required: true
+    },
 
     firstName: {
         type: String,

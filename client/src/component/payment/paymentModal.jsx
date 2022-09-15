@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import PaymentForm from "./payment"
 import "./paymentModal.jsx";
 
-export default function Modal() {
+export default function PaymentModal({payAmount}) {
   const [toggle, setToggle] = useState(false);
+  
 
   const toggleModal = () => {
     setToggle(!toggle);
+    
   };
 
   if(toggle) {
@@ -23,7 +25,7 @@ export default function Modal() {
 
        {toggle &&
           <> 
-            <PaymentForm handleClick = {toggleModal}/>
+            <PaymentForm handleClick = {toggleModal} payAmount = {payAmount}/>
            
          </>
       }
