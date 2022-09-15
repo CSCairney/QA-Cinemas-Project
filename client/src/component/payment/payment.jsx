@@ -58,7 +58,7 @@ const PaymentForm = ({handleClick, payAmount}) => {
       <form id="paymentform" ref={paymentForm} onSubmit={sendEmail}>
         <div className="mb-3">
         <label  className="form-label"/> Amount to Pay
-        <h3>`£{payAmount}`</h3>
+        <h3>£{payAmount}</h3>
         </div>
       <div className="mb-3">
       <label  className="form-label"/> Customer Details
