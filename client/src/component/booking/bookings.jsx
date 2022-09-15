@@ -325,7 +325,7 @@ const BookingForm = () => {
             <div id="total-amount">Total Amount: £{totalAmount}</div>
             <Button variant="warning" type="submit" value="Send" size="lg" id="payment-button" onClick={goToPay}>Add to Cart</Button>
             <Button variant="success" type="button" id="fakeModalButton" className="btn btn-success" disabled>Proceed to payment</Button>
-            <PaymentModal onClick={createBooking}/>
+            <PaymentModal payAmount={totalAmount}/>
         </div>
     );
 }
