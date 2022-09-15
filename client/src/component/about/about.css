@@ -1,0 +1,15 @@
+ * {
+    font-family: Open Sans Condensed, sans-serif;
+    /* background-color: white; */
+}
+.header {
+    padding-left: 1.5rem;
+    background-color: whitesmoke; 
+}
+.button {
+    margin-right: 45rem;
+}
+.title {
+    margin-top: 1rem ;
+    
+}
