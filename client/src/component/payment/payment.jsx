@@ -124,8 +124,8 @@ const PaymentForm = ({handleClick, payAmount}) => {
       </div>
 
 
-      <Button variant="primary" type="submit" value="Send" size="lg">Pay</Button>
-      <Button className="close-btn" variant="warning"  value="Send" size="lg" onClick={handleClick}>Close</Button>
+      <Button variant="success" type="submit" value="Send" size="lg">Pay</Button>
+      <Button className="close-btn" variant="danger"  value="Send" size="lg" onClick={handleClick}>X</Button>
     
       </form>
       

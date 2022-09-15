@@ -1,8 +1,18 @@
+:root {
+  --primary: #FAD02C;
+  --secondary: #90ADC6;
+  --dark: #333652;
+  --light: #E9EAEC;
+
+}
+
+
+
 #paymentform-div{
     text-align: left;
-    border-style:solid;
-    color:#333652;
-    background-color: #90ADC6;
+    border-style:none;
+    color:#FAD02C;
+    background-color: #333652;
     border-radius: 5px;
     /* margin-top: 20px; */
     padding:20px;
