@@ -78,7 +78,11 @@ const BookingsSchema = new Schema({
 
     adult: Number,
 
+    adultPremium: Number,
+
     child: Number,
+
+    childPremium: Number,
 
     concessions: [ConcessionSchema]
 });
