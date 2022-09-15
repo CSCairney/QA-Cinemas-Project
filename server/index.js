@@ -27,8 +27,9 @@ mongoose.connect('mongodb+srv://Admin:Admin1234@cluster0.syjcvks.mongodb.net/?re
     .catch(console.error);
 
 // Listening to the port
-const server = app.listen(3002, () =>
-    console.log(`The server has been activated on ${server.address().port}`));
+const PORT = process.env.PORT || 3002; 
+const server = app.listen(PORT, () =>
+    console.log(`The server has been activated on ${PORT}`));
 
 module.exports = app;
     
