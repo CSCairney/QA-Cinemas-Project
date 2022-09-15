@@ -1,5 +1,3 @@
-
-
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ContactUs from "./Pages/contactus";
 import Cinemanavbar from "./component/Cinemanavbar/cinemanavbar";
@@ -21,6 +19,8 @@ import SearchBar from './Pages/searchbar';
 
 function App() {
   return (
+    <>
+    <div style={{backgroundColor: '#6699CC'}}>
     <Router>
       <Cinemanavbar/>
       <Routes>
@@ -41,6 +41,8 @@ function App() {
         
       </Routes>
     </Router>
+    </div>
+    </>
   );
 }
 

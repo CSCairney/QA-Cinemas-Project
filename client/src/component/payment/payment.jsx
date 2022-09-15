@@ -4,7 +4,7 @@ import './payment.css';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
-const PaymentForm = ({handleClick}) => {
+const PaymentForm = ({handleClick, payAmount}) => {
   const[firstName, setFirstName] = useState("");
   const[lastName, setLastName] = useState("");
   const[email, setEmail] = useState("");
@@ -12,9 +12,14 @@ const PaymentForm = ({handleClick}) => {
   const[securityCode, setSecurityCode] = useState("");
   const[expiryMonth, setExpiryMonth] = useState("");
   const[expiryYear, setExpiryYear] = useState("");
+  // const[amount, setAmount] = useState("");
   
-  
+  // setAmount({payAmount});
   const paymentForm = useRef();
+
+  console.log(payAmount);
+
+
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -25,7 +30,8 @@ const PaymentForm = ({handleClick}) => {
         cardNumber: cardNumber,
         expiryMonth: expiryMonth,
         expiryYear: expiryYear,
-        securityCode: securityCode
+        securityCode: securityCode,
+        totalAmount: payAmount
       }
       console.log(payment);
       axios.post('http://localhost:3002/payments/create', payment)
@@ -48,8 +54,14 @@ const PaymentForm = ({handleClick}) => {
   return (
     <div id="payment-modal">
     <div id="payment-overlay"></div>
+    
+    
     <div  id="paymentform-div">
       <form id="paymentform" ref={paymentForm} onSubmit={sendEmail}>
+        <div className="mb-3">
+        <label  className="form-label"/> Amount to Pay
+        <h3>&nbsp;£{payAmount}</h3>
+        </div>
       <div className="mb-3">
       <label  className="form-label"/> Customer Details
       <input type="text" name="first_name" className="form-control" placeholder="FirstName" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
@@ -69,7 +81,7 @@ const PaymentForm = ({handleClick}) => {
         <label  className="form-label"/> Expiry Month: &nbsp; &nbsp;
 
         <select multiple={false} id="ratingSelectValue" onChange={(e) => setExpiryMonth(e.target.value)}>
-                            <option value="" disabled>Select</option>
+                            <option>Select</option>
                             <option value="01">Jan</option>
                             <option value="02">Feb</option>
                             <option value="03">Mar</option>
@@ -87,7 +99,7 @@ const PaymentForm = ({handleClick}) => {
        <label  className="form-label"/> Expiry Year: &nbsp; &nbsp;
 
         <select multiple={false} id="ratingSelectValue" onChange={(e) => setExpiryYear(e.target.value)}>
-                            <option value="" disabled>Select</option>
+                            <option>Select</option>
                             <option value="2022">2022</option>
                             <option value="2023">2023</option>
                             <option value="2024">2024</option>
@@ -114,8 +126,8 @@ const PaymentForm = ({handleClick}) => {
       </div>
 
 
-      <Button variant="primary" type="submit" value="Send" size="lg">Pay</Button>
-      <Button className="close-btn" variant="warning"  value="Send" size="lg" onClick={handleClick}>Close</Button>
+      <Button className="pay-btn" variant="success" type="submit" value="Send" size="lg">Pay</Button>
+      <Button className="close-btn" variant="danger"  value="Send" size="lg" onClick={handleClick}>X</Button>
     
       </form>
       

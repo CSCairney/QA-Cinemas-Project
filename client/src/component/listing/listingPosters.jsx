@@ -8,7 +8,7 @@ const ListingPosters = () => {
 
     useEffect(() => {
 
-        axios.get('http://localhost:3002/movies/getByLatest/5')
+        axios.get('http://localhost:3002/movies/getByOldest/5')
             .then((result) => {
                 setMovies(result.data);
             }).catch((err) => {
@@ -22,7 +22,7 @@ const ListingPosters = () => {
     return (
         <div className="ListingsPosters">
             <div className="posterTitleArea">
-                <p className="posterTitle">CurrentlyShowing</p>
+                <p className="posterTitle">Now Showing</p>
             </div>
             <div className="moviePoster-Container">
                 {movies?.map((movie) => (

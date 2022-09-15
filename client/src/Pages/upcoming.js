@@ -1,10 +1,13 @@
 import React from 'react';
+import ListingLatestTotal from '../component/listing/listingLatestTotal';
+import ListingLatest from '../component/listing/listingLatest';
 
 
  function UpComing() {
   return( 
     <div>
-   <h1 style={{paddingTop:"25rem",paddingLeft:"40rem",fontSize:"5em"}}>UpComing</h1> 
+      <ListingLatest/>
+      <ListingLatestTotal/>
    </div>
   );
 }

@@ -52,8 +52,8 @@ const Discussion = () => {
           
         return (
             
-            <div className="discussionBG">
-                <form onSubmit={addDiscussionMessage} id="discussionForm">
+            <div className="totalDiscussion">
+                <form onSubmit={addDiscussionMessage} className="discussionForm">
                     <h1>New Discussion</h1>
                     <div className="mb-3">
                         <label htmlFor="usernameInput1" className="form-label">Username:</label>
@@ -86,12 +86,12 @@ const Discussion = () => {
                     <h1>Discussion Board</h1>
                     {discussions?.map((discussion) => (
                         <div key={discussion._id} className="discussion">
-                            <div id="username">Username: {discussion.username}</div>
-                            <div id="subjectMovie">Movie: {discussion.subjectMovie}</div>
+                            <div id="username"><strong>Username: </strong> {discussion.username}</div>
+                            <div id="subjectMovie"><strong>Movie: </strong> {discussion.subjectMovie}</div>
                             <hr/>
-                            <div id="message">{discussion.message}</div>
+                            <div id="message"><strong>Message: </strong>{discussion.message}</div>
                             <hr/>
-                            <div id="rating">Reviewer's rating: {discussion.rating}</div>
+                            <div id="rating"><strong>Reviewer's Rating: </strong> {discussion.rating}</div>
                             
                         </div>
                     ))}
