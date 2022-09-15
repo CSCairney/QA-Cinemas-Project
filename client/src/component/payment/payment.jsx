@@ -13,9 +13,9 @@ const PaymentForm = ({handleClick, payAmount}) => {
   const[securityCode, setSecurityCode] = useState("");
   const[expiryMonth, setExpiryMonth] = useState("");
   const[expiryYear, setExpiryYear] = useState("");
+  // const[amount, setAmount] = useState("");
   
-  
-  
+  // setAmount({payAmount});
   const paymentForm = useRef();
 
   console.log(payAmount);
