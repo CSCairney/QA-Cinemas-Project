@@ -22,7 +22,7 @@ const ListingPosters = () => {
     return (
         <div className="ListingsPosters">
             <div className="posterTitleArea">
-                <p className="posterTitle">CurrentlyShowing</p>
+                <p className="posterTitle">Now Showing</p>
             </div>
             <div className="moviePoster-Container">
                 {movies?.map((movie) => (

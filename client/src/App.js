@@ -19,7 +19,7 @@ import AboutUs from './Pages/aboutus';
 function App() {
   return (
     <>
-    <div style={{backgroundColor: '#333652'}}>
+    <div style={{backgroundColor: '#6699CC'}}>
     <Router>
       <Cinemanavbar/>
       <Routes>
