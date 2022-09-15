@@ -14,11 +14,11 @@ import './index.css';
 // import Posts from './component/search/searchbar';
 
 
-import Search from './component/search/searchBar';
-
+// import Search from './component/search/searchBar';
+i
 
 import './App.css';
-import TotalAmount from './component/payment/paymentAmount';
+
 
 
 
@@ -30,7 +30,7 @@ root.render(
 
      <App/> 
      
-
+  
     </>
   </React.StrictMode>
 );
