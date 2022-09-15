@@ -6,7 +6,7 @@ const Intro = () => {
         <>
             <div className="row header">
                 <div className="col-md-9">
-                    <h1 className="title"> About Us </h1>
+                    <h1 className="title"> ABOUT US </h1>
                     <hr />
                     <p>
                         Join us on our journey to be at the forefront of big screen entertainment! <br />

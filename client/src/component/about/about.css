@@ -1,15 +1,32 @@
  * {
     font-family: Open Sans Condensed, sans-serif;
-    /* background-color: white; */
+    /* background-color: #333652; */
 }
 .header {
     padding-left: 1.5rem;
-    background-color: whitesmoke; 
+    background-color: #333652; 
+    color: whitesmoke ;
 }
 .button {
     margin-right: 45rem;
 }
 .title {
     margin-top: 1rem ;
+    color: black !important;
+    margin-top:10px !important;
+    text-align: center;
+    
+    order: 0;
+    flex: 1 1 auto !important;
+    color: rgb(170, 170, 170) !important;
+    font-size: 40px ;
+    font-weight: 900;
+    font-family: 'Open Sans Condensed', sans-serif !important;
+    text-decoration: none !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    
+    
     
 }

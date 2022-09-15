@@ -30,9 +30,9 @@ section .section-title {
     text-transform: uppercase;
 }
 
-#team .card {
+.card {
     border: none;
-    background: #ffffff;
+    background: #E9EAEC !important;
 }
 
 .image-flip:hover .backside,
@@ -137,6 +137,23 @@ height: 150px;
     size: 2rem;
 
 }
-.h1 {
+.h1  {
     color: black !important;
+    margin-top:10px !important;
+    display:flex !important;
+    justify-content: space-evenly !important;
+    order: 0;
+    flex: 1 1 auto !important;
+    color: rgb(170, 170, 170) !important;
+    font-size: 26px ;
+    font-weight: 700;
+    font-family: 'Open Sans Condensed', sans-serif !important;
+    text-decoration: none !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+}
+#team {
+    background-color: #333652 !important;
+  
 }
