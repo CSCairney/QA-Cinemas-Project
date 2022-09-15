@@ -48,6 +48,19 @@ module.exports = {
         }
     },
 
+    //Update booking in the database with last ID.
+    updateLastBookings: async (req, res) => {
+        try {
+            let id;
+            const getBooking = await Bookings.findOne().sort({ _id: -1 })
+                .then((res) => { id = res._id; })
+            const updateBooking = await Bookings.findByIdAndUpdate({ _id: id }, req.body, { new: true });
+            res.status(201).json(updateBooking);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
+    },
+
     //Delete booking from the database with maching ID.
     deleteBookings: async (req, res) => {
         try {

@@ -117,6 +117,25 @@ describe("Testing functions in the bookings", function () {
             });
     });
 
+    it("Should update the latest booking with status 201", function (done) {
+        const requestBody = {
+            movieTitle: "Thor 2",
+            date: "2022-01-01T00:00:00.000Z",
+            time: "12",
+            name: "rob",
+            email: "rob@rob.com",
+            seats: "1"
+        };
+        chai.request(app).put(`/bookings/updateLast`)
+            .send(requestBody).end((err, res) => {
+                chai.expect(err).to.be.null;
+                chai.expect(res.status).to.equal(201);
+                chai.expect(res.body).to.include({ movieTitle: "Thor 2" });
+                done();
+            });
+
+    });
+
     it("Should delete booking from database with status 201", function (done) {
         chai.request(app).delete(`/bookings/delete/${id}`)
             .end(function (err, res) {

@@ -23,6 +23,7 @@ describe("Testing functions in the payments", function () {
         Payments.deleteMany({})
             .then(() => {
                 Payments.create({
+                    totalAmount : 10,
                     firstName: "Bob",
                     lastName: "Bobson",
                     cardNumber: 12345,
@@ -72,6 +73,7 @@ describe("Testing functions in the payments", function () {
 
     it("Should create a new payment with status 201", function (done) {
         const requestBody = {
+            totalAmount : 10,
             firstName: "Rob",
             lastName: "Bobson",
             cardNumber: 12345,
@@ -90,6 +92,7 @@ describe("Testing functions in the payments", function () {
 
     it("Should update the payment with a maching ID with status 201", function (done) {
         const requestBody = {
+            totalAmount : 10,
             firstName: "Rob",
             lastName: "Bobson",
             cardNumber: 12345,
