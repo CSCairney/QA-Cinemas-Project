@@ -13,6 +13,9 @@ router.post("/create", bookingsController.createBookings);
 // Update request for bookings,
 router.put("/update/:id", bookingsController.updateBookings);
 
+// Update request for bookings using last ID,
+router.put("/updateLast", bookingsController.updateLastBookings);
+
 // Delete request for bookings,
 router.delete("/delete/:id", bookingsController.deleteBookings);
 
