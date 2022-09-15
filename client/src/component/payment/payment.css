@@ -54,6 +54,11 @@
     border-style: none;
   }
   
-  .pay-btn{
+  #pay-btn{
     width: 30%;
+  }
+
+  #confirm-btn{
+    width: 30%;
+    display: none !important;
   }
