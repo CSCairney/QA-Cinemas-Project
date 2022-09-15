@@ -25,6 +25,7 @@ const PaymentForm = ({handleClick, payAmount}) => {
   const routeChange = () =>{
     let path = `/PaymentConfirmationPage`;
     navigate(path);
+    handleClick();
   };
 
   
@@ -135,7 +136,7 @@ const PaymentForm = ({handleClick, payAmount}) => {
 
 
       <Button id="pay-btn" variant="success" type="submit" value="Send" size="lg">Pay</Button>
-      <Button id="confirm-btn" variant="warning" type="submit" value="Send" size="lg" onClick={routeChange}>Confirm</Button>
+      <Button id="confirm-btn" variant="warning" type="submit" value="Confirm" size="lg" onClick={routeChange}>Confirm</Button>
       <Button className="close-btn" variant="danger"  value="Send" size="lg" onClick={handleClick}>X</Button>
     
       </form>
