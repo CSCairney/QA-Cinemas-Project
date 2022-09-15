@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ContactUs from "./Pages/contactus";
 import Cinemanavbar from "./component/Cinemanavbar/cinemanavbar";
 import Home from './Pages/home';
@@ -16,7 +16,6 @@ import AddressPage from './Pages/address';
 import AboutUs from './Pages/aboutus';
 import SearchBar from './Pages/searchbarpage';
 import SearchBarPage from './Pages/searchbarpage';
-import PaymentConfirmationPage from './Pages/paymentconfirmationpage';
 
 const backgroundColor = {backgroundColor: '#54587c'};
 
@@ -41,7 +40,7 @@ function App() {
         <Route path="/Address" element= {<AddressPage/>} />
         <Route path="/AboutUs" element= {<AboutUs/>} />
         <Route path="/Search" element={<SearchBarPage/>}/>
-        <Route path="/PaymentConfirmationPage" element={<PaymentConfirmationPage/>}/>
+        
       </Routes>
     </Router>
     </div>
