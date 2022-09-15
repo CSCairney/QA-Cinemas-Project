@@ -11,7 +11,7 @@
   
 #bars{
     background-color: #333652;
-}
+    }
 #box{
     text-align: center;
     color:#FAD02C;
@@ -19,6 +19,7 @@
   margin-left:10px;
   margin-right:10px;
   padding:20px;
+  
 }
 #dropone{
     color: #FAD02C;

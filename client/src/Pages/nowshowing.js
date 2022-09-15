@@ -1,10 +1,12 @@
 import React from 'react';
-
+import ListingPosters from '../component/listing/listingPosters';
+import ListingTotal from '../component/listing/listingTotal';
 
  function NowShowing() {
   return( 
     <div>
-   <h1 style={{paddingTop:"25rem",paddingLeft:"40rem",fontSize:"5em"}}>NowShowing</h1> 
+   <ListingPosters/>
+   <ListingTotal/>
    </div>
   );
 }

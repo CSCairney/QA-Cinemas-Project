@@ -1,10 +1,11 @@
 import React from 'react';
+import Discussion from '../component/discussion/discussionsMessages';
 
 
  function DiscussionPage() {
   return( 
     <div>
-   <h1 style={{paddingTop:"25rem",paddingLeft:"40rem",fontSize:"5em"}}>Discussion</h1> 
+     <Discussion/>
    </div>
   );
 }
