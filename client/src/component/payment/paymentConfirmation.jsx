@@ -2,6 +2,8 @@ import React from "react";
 import {TiTickOutline} from "react-icons/ti";
 import "./paymentConfirmation.css"
 
+// Simple payment confirmation page
+
 const Confirmation = () => {
 
     return(
