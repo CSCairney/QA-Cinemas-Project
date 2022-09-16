@@ -112,7 +112,7 @@ const Cinemanavbar = () => {
               EMAIL US
             </Nav.Link>
             <Nav.Link style={{color:"#fad02c",fontSize:"x-large",paddingLeft:"10rem",paddingTop:"2rem"}} id="canvas" as={Link} to="/Address" onClick={handleClose}>
-              ADDRESS
+              OPENING TIMES
             </Nav.Link>
             <Nav.Link style={{color:"#fad02c",fontSize:"x-large",paddingLeft:"10rem",paddingTop:"2rem"}} id="canvas" as={Link} to="/AboutUs" onClick={handleClose}>
               ABOUT US
