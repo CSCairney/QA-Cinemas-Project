@@ -1,11 +1,9 @@
 import React from 'react';
+import GettingTherePage from '../component/gettingThere/GettingThere';
 
 
  function TravelBus() {
   return( 
-    <div>
-   <h1 style={{paddingTop:"25rem",paddingLeft:"40rem",fontSize:"5em"}}>Bus</h1> 
-   </div>
-  );
+    <GettingTherePage/>  );
 }
 export default TravelBus;

@@ -82,16 +82,16 @@ const Cinemanavbar = () => {
 
           <Offcanvas style={{backgroundColor:"#333652"}}show={show1} onHide={handleClose1} placement="end">
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title style={{color:"#fad02c",fontSize:"x-large",display:"center"}}>GETTING HERE</Offcanvas.Title>
+              <Offcanvas.Title style={{color:"#fad02c",fontSize:"x-large",display:"center"}}></Offcanvas.Title>
             </Offcanvas.Header>
             <Nav.Link  style={{color:"#fad02c",fontSize:"x-large",paddingLeft:"10rem",paddingTop:"2rem"}} id="canvas" onClick={handleClose1} as={Link} to="/Bus">
-              BUS
+              Getting Here
             </Nav.Link>
             <Nav.Link style={{color:"#fad02c",fontSize:"x-large",paddingLeft:"10rem",paddingTop:"2rem"}}id="canvas" onClick={handleClose1} as={Link} to="/Train">
-              TRAIN
+              
             </Nav.Link>
             <Nav.Link style={{color:"#fad02c",fontSize:"x-large",paddingLeft:"10rem",paddingTop:"2rem"}} id="canvas" onClick={handleClose1} as={Link} to="/Car">
-              CAR
+            
             </Nav.Link>
           </Offcanvas>
 
