@@ -10,7 +10,7 @@
 
   A project that connects a front-end HTML page made with REACT to a back-end MongoDB database, using Express framework to create custom API.  
   
-  App is hosted at [homepage](https://qacinemafront.nw.r.appspot.com/)
+<b>App is hosted at [homepage](https://qacinemafront.nw.r.appspot.com/) using Google Cloud Platform</b>
 
 ## User stories and Sprints 
 
@@ -38,6 +38,10 @@
 1. Launch a project in comand prompt/git bash or in your local IDE 
 2. Type ```npm start``` to run application
 3. This will launch your local browser
+
+  <img src="https://i.imgur.com/ACEF2uG.jpeg" alt="Movies screening" >
+  <img src="https://i.imgur.com/tzDZrgj.jpeg" alt="Movies screening" > 
+
 
 ## Running the tests
 
