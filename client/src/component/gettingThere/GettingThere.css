@@ -1,0 +1,73 @@
+* {
+  font-family: "Open Sans Condensed", sans-serif !important;
+  color: rgb(170, 170, 170);
+}
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.Subtitle {
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  text-align: center;
+  justify-content: center;
+}
+.shopimg {
+  width: 100% !important;
+  height: 99%;
+}
+.shop {
+  height: 100%;
+  display: flex;
+  flex-grow: 0.7;
+}
+
+.addy {
+  background-color: #333652;
+  color: #fad02c;
+  display: flex;
+
+  border: 2px solid;
+  width: 70%;
+  height: 100%;
+
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+.address {
+  flex-grow: 2;
+
+  margin-right: 5.5rem;
+}
+.direction {
+  display: flexbox;
+}
+.directions {
+  width: 92%;
+  padding: 1rem;
+  margin-left: 3.6rem;
+
+  margin-bottom: 2rem;
+  border: solid 1px;
+  background-color: #030303de;
+}
+.contactbtn {
+  margin-bottom: 1rem;
+  color: #030303de;
+  background-color: #fad02c;
+}
+.parking,
+.directionheading,
+.car {
+  color: #fad02c;
+  text-decoration: none;
+}
+
+.container {
+  background-color: #25273a;
+}
+.Subtitle {
+  justify-content: center;
+  text-align: center;
+}
