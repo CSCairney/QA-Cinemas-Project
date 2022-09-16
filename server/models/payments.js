@@ -17,6 +17,10 @@ const PaymentSchema = new Schema({
         required: true
     },
 
+    paymentEmail: {
+        type:String
+    },
+
     cardNumber: {
         type: Number,
         required: true
