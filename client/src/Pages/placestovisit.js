@@ -1,11 +1,11 @@
 import React from 'react';
-import PlacesToVisit from '../component/placesToVisit/PlacesToVisit';
+import Places from '../component/placesToVisit/Places';
 
 
  function VisitingPage() {
   return( 
     <div>
-   <PlacesToVisit/> 
+   <Places/> 
    </div>
   );
 }
