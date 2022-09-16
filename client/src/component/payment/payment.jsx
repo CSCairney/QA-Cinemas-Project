@@ -15,19 +15,19 @@ const PaymentForm = ({handleClick, payAmount}) => {
   const[expiryYear, setExpiryYear] = useState("");
 
   const paymentForm = useRef();
-
-  console.log(payAmount);
-
-
   let navigate = useNavigate();
+
+  
+  // Route to payment Confirmation Page
+
   const routeChange = () =>{
     let path = `/PaymentConfirmationPage`;
     navigate(path);
     handleClick();
   };
 
-  
-  const sendEmail = (e) => {
+  // Submit Payment function for payment form
+  const submitPayment = (e) => {
     e.preventDefault();
 
       const payment = {
@@ -48,9 +48,12 @@ const PaymentForm = ({handleClick, payAmount}) => {
         console.log(error.message)
     })
 
+    // Swaps the buttons when Pay button is pressed
+    // Switches CSS when clicked, Pay hides and Confirm is showen
     document.getElementById('confirm-btn').setAttribute('style', 'display:inline !important');
     document.getElementById('pay-btn').style.display = "none";
 
+    // sends email through to customer email
     emailjs.sendForm('service_2boguwp', 'template_04gib1c', paymentForm.current, 'alnPun0mV80hIi1T_')
       .then((result) => {
           console.log(result.text);
@@ -65,7 +68,7 @@ const PaymentForm = ({handleClick, payAmount}) => {
     
     
     <div  id="paymentform-div">
-      <form id="paymentform" ref={paymentForm} onSubmit={sendEmail}>
+      <form id="paymentform" ref={paymentForm} onSubmit={submitPayment}>
         <div className="mb-3">
         <label  className="form-label"/> Amount to Pay
         <h3>&nbsp;£{payAmount}</h3>

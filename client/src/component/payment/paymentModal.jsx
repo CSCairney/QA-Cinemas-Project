@@ -1,21 +1,17 @@
 import React, { useState } from "react";
 import PaymentForm from "./payment"
-import "./paymentModal.jsx";
+
 
 export default function PaymentModal({payAmount}) {
   const [toggle, setToggle] = useState(false);
   
-
+  // Toggle function to show and hide the payment form
   const toggleModal = () => {
     setToggle(!toggle);
     
   };
 
-  if(toggle) {
-    document.body.classList.add('active-modal')
-  } else {
-    document.body.classList.remove('active-modal')
-  }
+ 
 
   return (
     <>

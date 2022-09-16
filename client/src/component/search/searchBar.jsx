@@ -3,17 +3,20 @@ import React from 'react';
 import './searchBar.css';
 import {useEffect, useState} from 'react';
 import SearchResults from './searchResults';
-
 import Form from 'react-bootstrap/Form';
 
-// import Button from 'react-bootstrap/Button';
+
 
 
 const Search = () => {
 
+    // state to store movies in an array
     const [movies, setMovies] = useState([])
+
+    // state to store search input
     const [query, setQuery] = useState("")
     
+    // Retrieves movies using get request and stores it in movies state
     useEffect(() => {
 
         axios.get(`http://localhost:3002/movies/getByQuery/${query}`)
@@ -26,6 +29,7 @@ const Search = () => {
     }, [query]);
 
 
+    // If no query present prints "no search input" to console other wise returns movie according to input
     const Search = (movies) => {
         return movies.filter((movie) => {
         if (query === "") {
@@ -52,7 +56,6 @@ const Search = () => {
                 icon="search"
                 onChange={event => setQuery(event.target.value)}
                 />
-                {/* <Button variant="outline-success"> Search</Button> */}
                 </Form> 
             
 

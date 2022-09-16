@@ -1,6 +1,9 @@
 import React from "react"
 import '../listing/listingTotal.css';
 
+//Movies data sent through as props
+// map function used to display the movie data in the template for every every element within the movies array
+
 const SearchResults = ({data}) =>{ 
     
 return(
