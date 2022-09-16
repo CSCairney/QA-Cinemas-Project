@@ -9,6 +9,8 @@
 # <p align="center">QA Cinema Project<p>
 
   A project that connects a front-end HTML page made with REACT to a back-end MongoDB database, using Express framework to create custom API.  
+  
+<b>App is hosted at [homepage](https://qacinemafront.nw.r.appspot.com/) using Google Cloud Platform</b>
 
 ## User stories and Sprints 
 
@@ -36,6 +38,10 @@
 1. Launch a project in comand prompt/git bash or in your local IDE 
 2. Type ```npm start``` to run application
 3. This will launch your local browser
+
+  <img src="https://i.imgur.com/ACEF2uG.jpeg" alt="Movies screening" >
+  <img src="https://i.imgur.com/tzDZrgj.jpeg" alt="Movies screening" > 
+
 
 ## Running the tests
 
@@ -85,7 +91,7 @@ We use [GitHub](https://github.com/) for versioning.
 * **Abdirizak Osman - Project Owner** - [Rizak97](https://github.com/Rizak97/)
 * **Sanchayan Arudchelvam** - [sanchayarun](https://github.com/sanchayarun/)
 * **Alex Dinu** - [dnmihnea](https://github.com/dnmihnea/)
-* **Luxshan Puvanendrarajah** - [MMkluska](https://github.com/LuxshanPuvanendrarajah/)
+* **Luxshan Puvanendrarajah** - [LuxshanPuvanendrarajah](https://github.com/LuxshanPuvanendrarajah/)
 * **Mateusz Kluska** - [MMkluska](https://github.com/MMkluska/)
 
 ## License
