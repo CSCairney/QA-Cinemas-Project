@@ -7,7 +7,7 @@ return(
 
     <>
             <div className="posterTitleArea">
-                <p className="posterTitle">All Showings Today</p>
+                <p className="posterTitle">Search Results</p>
             </div>
             <div className="accordion">
             {data.map((movie) => (                    
