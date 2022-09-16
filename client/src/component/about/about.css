@@ -1,8 +1,8 @@
- * {
+ /* * {
     font-family: Open Sans Condensed, sans-serif;
   
  
-}
+} */
 .header {
     padding-left: 1.5rem;
     background-color: #333652; 
@@ -11,7 +11,7 @@
 .button {
     margin-right: 45rem;
 }
-.title {
+/* .title {
     margin-top: 1rem ;
     color: black !important;
     margin-top:10px !important;
@@ -27,7 +27,7 @@
     font-style: normal !important;
     font-variant: normal !important;
     text-transform: none !important;
-}
+} */
 .col-md-9 {
     flex: auto;
     width: auto;

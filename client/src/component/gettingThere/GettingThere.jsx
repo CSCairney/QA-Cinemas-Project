@@ -5,10 +5,10 @@ import shop from './shopfront.jpeg'
 const Directions = () => {
     return (
         <>
-            <section class="about-us py-5 " id="about-us">
-                <div class="container mt-5">
-                    <div class="row">
-                        <h1 class='Subtitle'>Getting There</h1> <hr />
+            <section className="about-us py-5 " id="about-us">
+                <div className="container mt-5">
+                    <div className="row">
+                        <h1 className='Subtitle'>Getting There</h1> <hr />
                         <div className="title">
                             <div className="address">
 

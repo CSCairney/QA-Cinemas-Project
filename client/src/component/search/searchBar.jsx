@@ -19,7 +19,7 @@ const Search = () => {
     // Retrieves movies using get request and stores it in movies state
     useEffect(() => {
 
-        axios.get(`http://localhost:3002/movies/getByQuery/${query}`)
+        axios.get(`https://qacinema-362612.ey.r.appspot.com/movies/getByQuery/${query}`)
             .then((result) => {
                 setMovies(result.data);
             }).catch((error) => {

@@ -68,4 +68,4 @@ const Places = () => {
 
     </>);
 }
-export default Places();
+export default Places;

@@ -1,8 +1,8 @@
-* {
-  font-family: "Open Sans Condensed", sans-serif !important;
+/* * {
+  font-family: "Open Sans Condensed", sans-serif;
   color: rgb(170, 170, 170);
-}
-.title {
+} */
+/* .title {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -70,4 +70,4 @@
 .Subtitle {
   justify-content: center;
   text-align: center;
-}
+}  */

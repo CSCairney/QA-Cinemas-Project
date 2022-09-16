@@ -6,11 +6,11 @@
 .mcard {
     background-color: #FAD02C;
 }
-* {
+/* * {
     font-family: Open Sans Condensed, sans-serif !important;
     
     
-}
+} */
 .standardScreen, .deluxeScreen{
     /* color: red !important; */
     margin-top:10px !important;

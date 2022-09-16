@@ -16,7 +16,7 @@ import AddressPage from './Pages/address';
 import AboutUs from './Pages/aboutus';
 import SearchBarPage from './Pages/searchbarpage';
 import PaymentConfirmationPage from './Pages/paymentconfirmationpage';
-const backgroundColor = {backgroundColor: '#54587c'};
+const backgroundColor = {backgroundColor: '#54587c'};  
 
 function App() {
   return (
