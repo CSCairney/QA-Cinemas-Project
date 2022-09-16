@@ -120,6 +120,26 @@ describe("Testing functions in the payments", function () {
             });
     });
 
+    it("Should update the latest booking with status 201", function (done) {
+        const requestBody = {
+            totalAmount : 10,
+            firstName: "Rob",
+            lastName: "Bobson",
+            cardNumber: 12345,
+            expiryMonth: 01,
+            expiryYear: 2022,
+            securityCode: 123
+        };
+        chai.request(app).put(`/payments/updateLast`)
+            .send(requestBody).end((err, res) => {
+                chai.expect(err).to.be.null;
+                chai.expect(res.status).to.equal(201);
+                chai.expect(res.body).to.include({ firstName: "Rob" });
+                done();
+            });
+
+    });
+
     it("Should delete payment from database with status 201", function (done) {
         chai.request(app).delete(`/payments/delete/${id}`)
             .end(function (err, res) {
