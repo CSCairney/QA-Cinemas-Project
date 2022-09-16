@@ -10,7 +10,7 @@
 
   A project that connects a front-end HTML page made with REACT to a back-end MongoDB database, using Express framework to create custom API.  
   
-<b>App is hosted at [homepage](https://qacinemafront.nw.r.appspot.com/) using Google Cloud Platform</b>
+<b>App is hosted at [homepage](https://qacinemafront.nw.r.appspot.com/Home) using Google Cloud Platform</b>
 
 ## User stories and Sprints 
 
