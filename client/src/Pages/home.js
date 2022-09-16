@@ -1,13 +1,11 @@
 import React from 'react';
-import ListingLatest from '../component/listing/listingLatest';
-import ListingPosters from '../component/listing/listingPosters';
+
+
  function Home() {
   return( 
     <div>
-    <ListingPosters/>
-    <ListingLatest/>
-   
-    </div>
+   <h1 style={{paddingTop:"25rem",paddingLeft:"40rem",fontSize:"5em"}}>HomePage</h1> 
+   </div>
   );
 }
 export default Home;
