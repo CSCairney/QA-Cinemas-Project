@@ -17,7 +17,7 @@
 .card-body{
   flex: 1 1 auto;
   padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
-  color: #FAD02C!important;
+  color: #FAD02C;
 }
 .btn-primary:hover,
 .btn-primary:focus {
@@ -142,13 +142,13 @@ section .section-title {
 
 }
 .h1  {
-    color: #FAD02C !important;
+    color: black !important;
     margin-top:10px !important;
     display:flex !important;
     justify-content: space-evenly !important;
     order: 0;
     flex: 1 1 auto !important;
-    color: #333652 !important;
+    color: rgb(170, 170, 170) !important;
     font-size: 26px ;
     font-weight: 700;
     font-family: 'Open Sans Condensed', sans-serif !important;

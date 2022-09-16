@@ -23,8 +23,8 @@ const Cinemanavbar = () => {
       <Container>
         <Navbar.Brand as={Link} to="/Home" className="d-inline-block">
           <img
-            src="https://i.imgur.com/sSyKKMJ.png"
-            width="300rem"
+            src="https://i.imgur.com/2NHKHd0.png"
+            width="200rem"
             height="200rem"
             className="d-inline-block align-top"
             alt=" logo"
