@@ -50,8 +50,13 @@
     position:absolute; top:0; right:0;
     margin-top: 2%;
     margin-right: 2%;
-    background-color: #333652;
-    border-style: none;
+    background-color: #333652 !important;
+    border-style: none !important;
+  }
+
+  .close-btn:hover{
+    background-color: red !important;
+
   }
   
   #pay-btn{
