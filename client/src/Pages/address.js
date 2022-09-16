@@ -1,11 +1,10 @@
 import React from 'react';
+import OpeningTimes from '../component/OpeningTimes/OpeningTimes';
 
 
  function AddressPage() {
   return( 
-    <div>
-   <h1 style={{paddingTop:"25rem",paddingLeft:"40rem",fontSize:"10em"}}>Address</h1> 
-   </div>
+    <OpeningTimes/>
   );
 }
 export default AddressPage;
