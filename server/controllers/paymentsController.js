@@ -48,6 +48,19 @@ module.exports = {
         }
     },
 
+    //Update payment in the database with last ID.
+    updateLastPayments: async (req, res) => {
+        try {
+            let id;
+            const getPayment = await Payments.findOne().sort({ _id: -1 })
+                .then((res) => { id = res._id; })
+            const updatePayment = await Payments.findByIdAndUpdate({ _id: id }, req.body, { new: true });
+            res.status(201).json(updatePayment);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
+    },
+
     //Delete payment from the database with maching ID.
     deletePayments: async (req, res) => {
         try {
