@@ -48,12 +48,12 @@ const BookingForm = () => {
         }
         setConcessions(concession);
         const booking = {
-            movieTitle: "bookingsMovieTitle",
-            date: "bookingsDate",
-            time: "bookingsTime",
-            name: "bookingsName",
-            email: "bookingsEmail@em.com",
-            phone: 123,
+            movieTitle: bookingsMovieTitle,
+            date: bookingsDate,
+            time: bookingsTime,
+            name: bookingsName,
+            email: bookingsEmail,
+            phone: bookingsPhone,
             seats: ["Default seat"],
             adult: bookingsAdult,
             adultPremium: bookingsAdultPremium,
@@ -102,22 +102,22 @@ const BookingForm = () => {
 
     const updateBooking = (e) =>{
         e.preventDefault()
-        const concession = {
+        const concession = [{
             popcornFlavour: popcornFlavour,
             popcornAmount: popcornAmount,
             nachosFlavour: nachosFlavour,
             nachosAmount: nachosAmount,
             drinksFlavour: drinkFlavour,
             drinksAmount: drinkAmount
-        }
+        }]
         setConcessions(concession);
         const booking = {
-            movieTitle: "bookingsMovieTitle",
-            date: "bookingsDate",
-            time: "bookingsTime",
-            name: "bookingsName",
-            email: "bookingsEmail@em.com",
-            phone: 123,
+            movieTitle: bookingsMovieTitle,
+            date: bookingsDate,
+            time: bookingsTime,
+            name: bookingsName,
+            email: bookingsEmail,
+            phone: bookingsPhone,
             seats: ["Default seat"],
             adult: bookingsAdult,
             adultPremium: bookingsAdultPremium,
