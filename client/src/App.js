@@ -14,7 +14,6 @@ import TravelTrain from './Pages/train';
 import TravelCar from './Pages/car';
 import AddressPage from './Pages/address';
 import AboutUs from './Pages/aboutus';
-import SearchBar from './Pages/searchbarpage';
 import SearchBarPage from './Pages/searchbarpage';
 import PaymentConfirmationPage from './Pages/paymentconfirmationpage';
 const backgroundColor = {backgroundColor: '#54587c'};

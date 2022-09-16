@@ -1,11 +1,9 @@
 import React from 'react';
-
+import AboutPage from "../component/about/AboutPage.jsx"
 
  function AboutUs() {
   return( 
-    <div>
-   <h1 style={{paddingTop:"25rem",paddingLeft:"40rem",fontSize:"10em"}}>AboutUs</h1> 
-   </div>
+   <AboutPage/>
   );
 }
 export default AboutUs;
