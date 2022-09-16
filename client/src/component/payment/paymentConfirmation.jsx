@@ -1,5 +1,6 @@
 import React from "react";
 import {TiTickOutline} from "react-icons";
+
 const Confirmation = () => {
 
     return(
@@ -12,3 +13,4 @@ const Confirmation = () => {
     );
 }
 
+export default Confirmation;

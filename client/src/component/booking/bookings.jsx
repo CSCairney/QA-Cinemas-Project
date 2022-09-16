@@ -3,6 +3,7 @@ import { useState, useEffect} from 'react';
 import axios from 'axios';
 import'./bookings.css';
 import Button from 'react-bootstrap/Button';
+import PaymentModal from '../payment/paymentModal';
 
 
 const BookingForm = () => {
@@ -32,77 +33,50 @@ const BookingForm = () => {
     const [drinkAmount, setDrinkAmount] = useState(0);
     const [drinkSize, setDrinkSize] = useState("Small");
     const [totalPrice, setTotalPrice] = useState(0);
+    let totalAmount = totalPrice;
 
 
-    const addBooking = (e) =>{
+    const createBooking = (e) =>{
         e.preventDefault()
+        const concession = {
+            popcornFlavour: popcornFlavour,
+            popcornAmount: popcornAmount,
+            nachosFlavour: nachosFlavour,
+            nachosAmount: nachosAmount,
+            drinksFlavour: drinkFlavour,
+            drinksAmount: drinkAmount
+        }
+        setConcessions(concession);
         const booking = {
-            movieTitle: bookingsMovieTitle,
-            date: bookingsDate,
-            time: bookingsTime,
-            name: bookingsName,
-            email: bookingsEmail,
-            phone: bookingsPhone,
+            movieTitle: "bookingsMovieTitle",
+            date: "bookingsDate",
+            time: "bookingsTime",
+            name: "bookingsName",
+            email: "bookingsEmail@em.com",
+            phone: 123,
             seats: ["Default seat"],
             adult: bookingsAdult,
             adultPremium: bookingsAdultPremium,
             child: bookingsChild,
             childPremium: bookingsChildPremium,
-            concessions: concessions
+            concessions: concession
         }
-        console.log(booking);
-        axios.post('http://localhost:3002/bookings/create', booking
+        
+        axios.post('https://qacinema-362612.ey.r.appspot.com/bookings/create', booking
         ).then(()=>{
-            console.log("Booking created - moving to seat allocation")
+            console.log("Booking created")
         }).catch((error) => {
             console.log(error.message)
         })
-
-        let popcornMult = 5;
-        if(popcornSize === "Large") popcornMult = 8;
-        let nachosMult = 5;
-        if(nachosSize === "Large") nachosMult = 8;
-        let drinkMult = 3;
-        if(drinkSize === "Large") drinkMult = 5;
-        
-        setTotalPrice(totalPrice + bookingsAdult*9 + bookingsAdultPremium*16 + bookingsChild*6 + bookingsChildPremium*10 + popcornAmount*popcornMult + nachosAmount*nachosMult + drinkAmount*drinkMult);
+        console.log(booking);
+        calculateTotal();
     }
 
-    const addConcession = (e) =>{
-        e.preventDefault()
-        const popcorn = {
-            popcorn: {
-                flavour: popcornFlavour,
-                amount: popcornAmount,
-                size: popcornSize
-            }
-        }
-        const nachos = {
-            nachos: {
-                flavour: nachosFlavour,
-                amount: nachosAmount,
-                size: nachosSize
-            }
-        }
-        const drink = {
-            drink: {
-                flavour: drinkFlavour,
-                amount: drinkAmount,
-                size: drinkSize
-            }
-        }
-        const concession = {
-            popcorn,
-            nachos,
-            drink
-        }
-        console.log(concession);
-        setConcessions(concession);
-
+    const calculateTotal = () => {
         let display = document.querySelector("#concessionsDisplay");
         if(popcornAmount > 0 || nachosAmount > 0 || drinkAmount > 0) {
             display.innerHTML="Your Concessions:";
-            document.getElementById('addConcessionBtn').innerHTML = 'Update Concession';
+            document.getElementById('payment-button').innerHTML = 'Update Cart';
         }
 
         if(popcornAmount > 0) {
@@ -122,11 +96,60 @@ const BookingForm = () => {
             entryDiv.textContent = `${drinkAmount}x ${drinkFlavour}, ${drinkSize}`;
             display.appendChild(entryDiv);
         }
+        setTotalPrice(0);
+        setTotalPrice(bookingsAdult*9 + bookingsAdultPremium*16 + bookingsChild*6 + bookingsChildPremium*10 + popcornAmount*6 + nachosAmount*6 + drinkAmount*3);
+    }
+
+    const updateBooking = (e) =>{
+        e.preventDefault()
+        const concession = {
+            popcornFlavour: popcornFlavour,
+            popcornAmount: popcornAmount,
+            nachosFlavour: nachosFlavour,
+            nachosAmount: nachosAmount,
+            drinksFlavour: drinkFlavour,
+            drinksAmount: drinkAmount
+        }
+        setConcessions(concession);
+        const booking = {
+            movieTitle: "bookingsMovieTitle",
+            date: "bookingsDate",
+            time: "bookingsTime",
+            name: "bookingsName",
+            email: "bookingsEmail@em.com",
+            phone: 123,
+            seats: ["Default seat"],
+            adult: bookingsAdult,
+            adultPremium: bookingsAdultPremium,
+            child: bookingsChild,
+            childPremium: bookingsChildPremium,
+            concessions: concession
+        }
+
+        axios.put('https://qacinema-362612.ey.r.appspot.com/bookings/updateLast', booking
+        ).then(()=>{
+            console.log("Booking updated")
+        }).catch((error) => {
+            console.log(error.message)
+        })
+        console.log(booking);
+        calculateTotal();
+    }
+
+    const goToPay = (e) =>{
+        let checker = document.getElementById('payment-button').innerHTML;
+        document.getElementById('modalButton').style.display = "block";
+        document.getElementById('fakeModalButton').style.display = "none";
+        if (checker ==="Update Cart") {
+            updateBooking(e);
+        } else {
+            createBooking(e);
+        }
     }
 
     useEffect(() => {
 
-        axios.get('http://localhost:3002/bookings/getAll')
+        axios.get('https://qacinema-362612.ey.r.appspot.com/bookings/getAll')
             .then((result) => {
                 setBookings(result.data);
             }).catch((error) => {
@@ -136,7 +159,7 @@ const BookingForm = () => {
 
     useEffect(() => {
 
-        axios.get('http://localhost:3002/movies/getAll')
+        axios.get('https://qacinema-362612.ey.r.appspot.com/movies/getAll')
             .then((result) => {
                 setMovies(result.data);
             }).catch((error) => {
@@ -147,7 +170,7 @@ const BookingForm = () => {
 
     const changeTitle = (e) => {
         
-        axios.get(`http://localhost:3002/movies/getByTitle/${bookingsMovieTitle}`)
+        axios.get(`https://qacinema-362612.ey.r.appspot.com/movies/getByTitle/${bookingsMovieTitle}`)
             .then((result) => {
                 setMoviesShowingDates(result.data.showingDates);
                 setMoviesShowingTimes(result.data.showingTimes);
@@ -236,15 +259,15 @@ const BookingForm = () => {
                 <h4 id="concessions-title">Concessions</h4>
                 <Button id="concessions-prices-button" onClick={concessionsPrices}>Show Prices</Button>
                 <div id="concessions-prices">
-                    <p>Popcorn: Small £5, Large £8</p>
-                    <p>Nachos: Small £5, Large £8</p>
-                    <p>Drinks: Small £3, Large £5</p>
+                    <p>Popcorn: £6</p>
+                    <p>Nachos: £6</p>
+                    <p>Drinks: £3</p>
                 </div>
                 <div id="concessions">
                     <div id="concessions-main">
                         <div id="concessions-body">
                             <form id="popcorn" className="concessions-section">
-                                <h5 className="concession-subclass">Popcorn</h5>
+                                <h5 className="concession-subclass"><u>Popcorn</u></h5>
                                 <label for="popcorn-amount">Amount:</label>
                                 <input type="number" id="popcorn-amount" name="popcorn-amount" onChange={(e) => setPopcornAmount(e.target.value)}/>
                                 <label for="popcorn-flavour">Type:</label> 
@@ -253,14 +276,14 @@ const BookingForm = () => {
                                         <option value="Salted" onClick={(e) => setPopcornFlavour(e.target.textContent)}>Salted</option>
                                         <option value="SweetSalted" onClick={(e) => setPopcornFlavour(e.target.textContent)}>Sweet & Salted</option>
                                 </select>
-                                <label for="popcorn-size">Size:</label>
+                                {/* <label for="popcorn-size">Size:</label>
                                 <select id="popcorn-size" onChange={(e) => setPopcornSize(e.target.value)}>
                                         <option value="Small">Small</option>
                                         <option value="Large">Large</option>
-                                </select>
+                                </select> */}
                             </form>
                             <form id="nachos" className="concessions-section">
-                                <h5 className="concession-subclass">Nachos</h5>
+                                <h5 className="concession-subclass"><u>Nachos</u></h5>
                                 <label for="nachos-amount">Amount:</label>
                                 <input type="number" id="nachos-amount" name="nachos-amount" onChange={(e) => setNachosAmount(e.target.value)}/>
                                 <label for="nachos-flavour">Type:</label> 
@@ -268,14 +291,14 @@ const BookingForm = () => {
                                         <option value="Cheesy">Cheesy</option>
                                         <option value="Salsa">Salsa</option>
                                 </select>
-                                <label for="nachos-size">Size:</label>
+                                {/* <label for="nachos-size">Size:</label>
                                 <select id="nachos-size" onChange={(e) => setNachosSize(e.target.value)}>
                                         <option value="Small">Small</option>
                                         <option value="Large">Large</option>
-                                </select>
+                                </select> */}
                             </form>
                             <form id="drink" className="concessions-section">
-                                <h5 className="concession-subclass">Drinks</h5>
+                                <h5 className="concession-subclass"><u>Drinks</u></h5>
                                 <label for="drink-amount">Amount:</label>
                                 <input type="number" id="drink-amount" name="drink-amount" onChange={(e) => setDrinkAmount(e.target.value)}/>
                                 <label for="drink-flavour">Type:</label> 
@@ -286,21 +309,23 @@ const BookingForm = () => {
                                         <option value="Pepsi Max">Pepsi Max</option>
                                         <option value="J2O">J2O</option>
                                 </select>
-                                <label for="drink-size">Size:</label>
-                                <select id="drink-size" onChange={(e) => setDrinkSize(e.target.value)}>
+                                {/* <label for="drink-size">Size:</label> */}
+                                {/* <select id="drink-size" onChange={(e) => setDrinkSize(e.target.value)}>
                                         <option value="Small">Small</option>
                                         <option value="Large">Large</option>
-                                </select>
+                                </select> */}
                             </form>
                         </div>
                         <div id="button-flex">
-                            <Button id="addConcessionBtn" onClick={addConcession}>Add Concessions</Button>
                         </div>
                     </div>
                     <div id="concessionsDisplay">(Concessions Will Appear Here)</div>
                 </div>
             </div>
-            <Button variant="warning" type="submit" value="Send" size="lg" id="payment-button" onClick={addBooking}>Go to Payment</Button>
+            <div id="total-amount">Total Amount: £{totalAmount}</div>
+            <Button variant="warning" type="submit" value="Send" size="lg" id="payment-button" onClick={goToPay}>Add to Cart</Button>
+            <Button variant="success" type="button" id="fakeModalButton" className="btn btn-success" disabled>Proceed to payment</Button>
+            <PaymentModal payAmount={totalAmount}/>
         </div>
     );
 }

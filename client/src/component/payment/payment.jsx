@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react';
 import './payment.css';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const PaymentForm = ({handleClick, payAmount}) => {
   const[firstName, setFirstName] = useState("");
@@ -20,7 +21,14 @@ const PaymentForm = ({handleClick, payAmount}) => {
   console.log(payAmount);
 
 
+  let navigate = useNavigate();
+  const routeChange = () =>{
+    let path = `/PaymentConfirmationPage`;
+    navigate(path);
+    handleClick();
+  };
 
+  
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -34,14 +42,15 @@ const PaymentForm = ({handleClick, payAmount}) => {
         totalAmount: payAmount
       }
       console.log(payment);
-      axios.post('http://localhost:3002/payments/create', payment)
+      axios.post('https://qacinema-362612.ey.r.appspot.com/payments/create', payment)
       .then(() => {
           console.log("New payment added")
       }).catch((error) => {
         console.log(error.message)
     })
 
-
+    document.getElementById('confirm-btn').setAttribute('style', 'display:inline !important');
+    document.getElementById('pay-btn').style.display = "none";
 
     // emailjs.sendForm('service_2boguwp', 'template_you5wxd', paymentForm.current, 'alnPun0mV80hIi1T_')
     //   .then((result) => {
@@ -126,7 +135,8 @@ const PaymentForm = ({handleClick, payAmount}) => {
       </div>
 
 
-      <Button className="pay-btn" variant="success" type="submit" value="Send" size="lg">Pay</Button>
+      <Button id="pay-btn" variant="success" type="submit" value="Send" size="lg">Pay</Button>
+      <Button id="confirm-btn" variant="warning" type="submit" value="Confirm" size="lg" onClick={routeChange}>Confirm</Button>
       <Button className="close-btn" variant="danger"  value="Send" size="lg" onClick={handleClick}>X</Button>
     
       </form>

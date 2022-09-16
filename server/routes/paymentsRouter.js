@@ -13,6 +13,9 @@ router.post("/create", paymentsController.createPayments);
 // Update request for payments,
 router.put("/update/:id", paymentsController.updatePayments);
 
+// Update request for payments using last ID,
+router.put("/updateLast", paymentsController.updateLastPayments);
+
 // Delete request for payments,
 router.delete("/delete/:id", paymentsController.deletePayments);
 
