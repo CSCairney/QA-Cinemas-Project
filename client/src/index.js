@@ -5,7 +5,7 @@ import App from './App';
 import './App.css';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Confirmation from './component/payment/paymentConfirmation';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

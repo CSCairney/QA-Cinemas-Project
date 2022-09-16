@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-// import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 import './payment.css';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
@@ -35,6 +35,7 @@ const PaymentForm = ({handleClick, payAmount}) => {
       const payment = {
         firstName: firstName,
         lastName: lastName,
+        paymentEmail:email,
         cardNumber: cardNumber,
         expiryMonth: expiryMonth,
         expiryYear: expiryYear,
@@ -52,12 +53,12 @@ const PaymentForm = ({handleClick, payAmount}) => {
     document.getElementById('confirm-btn').setAttribute('style', 'display:inline !important');
     document.getElementById('pay-btn').style.display = "none";
 
-    // emailjs.sendForm('service_2boguwp', 'template_you5wxd', paymentForm.current, 'alnPun0mV80hIi1T_')
-    //   .then((result) => {
-    //       console.log(result.text);
-    //   }, (error) => {
-    //       console.log(error.text);
-    //   });
+    emailjs.sendForm('service_2boguwp', 'template_04gib1c', paymentForm.current, 'alnPun0mV80hIi1T_')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
   };
 
   return (
