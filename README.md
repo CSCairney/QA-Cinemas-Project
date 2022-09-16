@@ -85,7 +85,7 @@ We use [GitHub](https://github.com/) for versioning.
 * **Abdirizak Osman - Project Owner** - [Rizak97](https://github.com/Rizak97/)
 * **Sanchayan Arudchelvam** - [sanchayarun](https://github.com/sanchayarun/)
 * **Alex Dinu** - [dnmihnea](https://github.com/dnmihnea/)
-* **Luxshan Puvanendrarajah** - [MMkluska](https://github.com/LuxshanPuvanendrarajah/)
+* **Luxshan Puvanendrarajah** - [LuxshanPuvanendrarajah](https://github.com/LuxshanPuvanendrarajah/)
 * **Mateusz Kluska** - [MMkluska](https://github.com/MMkluska/)
 
 ## License
