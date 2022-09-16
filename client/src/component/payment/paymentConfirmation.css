@@ -1,0 +1,24 @@
+.paymentConfirmation{
+    text-align: center;
+    border-style:none;
+    color:#FAD02C;
+    background-color: #333652;
+    display: center;
+    justify-content: center;
+    height: 100%;
+    overflow: auto;
+}
+
+.pcContainer{
+    margin-top: 15%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 25%;
+    overflow: auto;
+    align-content: center;
+}
+
+.pcIcon{
+    size: 70px;
+    
+}

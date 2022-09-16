@@ -1,0 +1,69 @@
+.totalDiscussion{
+  display:flex;
+  flex-direction: row;
+  padding:2%;
+}
+
+.discussionForm{
+  flex: 1 1 auto;
+  text-align: left;
+  justify-content: space-evenly;
+  border-style:solid;
+  background-color: #90ADC6;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-right:15px;
+  padding:20px;
+  width: 30%;
+  height:fit-content;
+  display: flex;
+  flex-direction: column
+}
+
+.discussionResult{
+  order: 0;
+  flex: 1 1 auto;
+  text-align: left;
+  border-style:solid;
+  width:40%;
+  background-color: #90ADC6;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding:20px;
+  width:fit-content;
+  }
+
+.discussion{
+    order: 0;
+    flex: 1 1 auto;
+    border-style:ridge;
+    background-color:#ffffff;
+    border-radius: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow:hidden;
+    padding: 20px;
+    width: fit-content;
+    height:fit-content;
+}
+
+.username{
+    font-size: large;
+    background-color:#ffffff;
+    color:#1c439b;
+    }
+
+
+
+/* .message{
+
+}
+
+.rating{
+
+}
+
+.subjectMovie{
+
+} */

@@ -1,0 +1,52 @@
+
+:root {
+    --primary: #FAD02C;
+    --secondary: #90ADC6;
+    --dark: #333652;
+    --light: #E9EAEC;
+  }
+  .me-auto{
+    font-size:x-large;
+  }
+  
+#bars{
+    background-color: #333652;
+    }
+#box{
+    text-align: center;
+    color:#FAD02C;
+  margin-top: 20px;
+  margin-left:10px;
+  margin-right:10px;
+  padding:20px;
+  
+}
+#dropone{
+    color: #FAD02C;
+};
+#dropdown-basic{
+  
+    text-align: left;
+  border-style:solid;
+  color:#FAD02C;
+  background-color: #333652;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-left:10px;
+  margin-right:10px;
+  padding:20px;
+};
+
+#showing{
+    color: #FAD02C;
+    background-color: #333652;
+};
+.btn-close{
+    color:#FAD02C ;
+    background-color: #333652;
+}
+.searchicon{
+  height: 3em;
+  width: 3em;
+  padding-bottom:10px;
+}

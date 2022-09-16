@@ -1,0 +1,43 @@
+#screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 80%;;
+    height: 8vh;
+    border: 2px solid black;
+    background-color: rgb(203, 255, 238);
+    margin-bottom: 15vh;
+}
+
+.half-row {
+    width:50%;
+    list-style-type:none;
+    padding: 0;
+    display: flex;
+    justify-content:space-evenly;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: larger;
+    flex-direction: row;
+}
+
+.row {
+    width: 100%;
+    margin-bottom: 7vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+li {
+    font-size: 25px;
+    border: 2px solid black;
+    padding: 20px;
+    border-radius: 25%;
+    background-color: rgb(255, 195, 195);
+}
+
+li:hover {
+    background-color: rgb(234, 110, 110);
+}
