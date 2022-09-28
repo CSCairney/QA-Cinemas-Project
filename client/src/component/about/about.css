@@ -43,3 +43,22 @@
 #title{
     color: #FAD02C !important;
 }
+
+.about-Container{
+    background-color: #90ADC6;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left:15%;
+    margin-right:15%;
+}
+
+.about-Body{
+    display:flex;
+}
+
+.about-Content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

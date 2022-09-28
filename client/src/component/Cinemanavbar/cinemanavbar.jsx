@@ -24,8 +24,8 @@ const Cinemanavbar = () => {
         <Navbar.Brand as={Link} to="/Home" className="d-inline-block">
           <img
             src="https://i.imgur.com/sSyKKMJ.png"
-            width="300rem"
-            height="200rem"
+            width="200rem"
+            height="100rem"
             className="d-inline-block align-top"
             alt=" logo"
             as={Link}
